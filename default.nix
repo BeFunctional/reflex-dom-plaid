@@ -1,10 +1,10 @@
 let
   reflex-platform = import ((import <nixpkgs> {}).fetchFromGitHub {
-    owner  = "reflex-frp";
+    owner  = "Befunctional";
     repo   = "reflex-platform";
-    rev    = "318eb23267471f0cfbb0c8be3efa26430f8627d4";
-    sha256 = "0yn0lwa6z4jk09ng67m5wdfwah07a71zxbdswxm8qi7mgj0pim32";
-  }) {};
+    rev    = "55a855cd0b7547a0e17fffe92650d0203f7bca6e";
+    sha256 = "0wnnfbr3nqw5q698iw5ms4dv565d4rdgiww8gvd62wwnqr0b7xrb";
+  }) {hlsSupport = true;};
 in
 reflex-platform.project ({ pkgs, ... }: {
   packages = {
@@ -17,3 +17,4 @@ reflex-platform.project ({ pkgs, ... }: {
     ghcjs = ["reflex-dom-plaid" "demo"];
   };
 })
+

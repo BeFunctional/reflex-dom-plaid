@@ -1,0 +1,4 @@
+cradle:
+  cabal:
+    - path: "./reflex-dom-plaid"
+      component: "lib:reflex-dom-plaid"

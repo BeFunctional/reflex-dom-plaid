@@ -113,7 +113,6 @@ activatePlaidLinkDialog cfg onResult = do
 
   o ^. jss (t_ "onExit") (fun $ \_ _ args -> case args of
     (errJs : metaJs : _) -> do
-      liftIO $ print @String "from onExit"
       err <- maybeJs mkPlaidErrorFromObj errJs
       institution <- maybeJs mkInstitutionFromObj =<< metaJs ^. js (t_ "institution")
       sessionId <- maybeJs valToText =<< o ^. js (t_ "link_session_id")
@@ -130,14 +129,12 @@ activatePlaidLinkDialog cfg onResult = do
     )
 
   o ^. jss (t_ "onLoad") (fun $ \_ _ _ -> do
-    liftIO $ print @String "from onLoad"
     handle <- liftIO (readMVar handleMVar)
     _ <- handle ^. js0 (t_ "open")
     pure ()
     )
 
   o ^. jss (t_ "onEvent") (fun $ \_ _ _ -> do
-    liftIO $ putStrLn "Event has occured"
     )
 
   handle <- ( jsg (t_ "Plaid") ^. js1 (t_ "create") o )

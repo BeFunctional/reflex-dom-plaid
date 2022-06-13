@@ -2,6 +2,8 @@
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables#-}
+{-# LANGUAGE TypeApplications #-}
 
 module Reflex.Dom.Plaid.Link
   ( PlaidLinkConfig(..)
@@ -26,6 +28,9 @@ import Language.Javascript.JSaddle.Object (fun, js, js0, js1, jsg, jss, obj)
 import Language.Javascript.JSaddle.Value (maybeNullOrUndefined, valToText)
 
 import Reflex.Dom.Core
+import Language.Javascript.JSaddle.Monad (catch)
+import Language.Javascript.JSaddle ( JSException, jsNull )
+import Control.Exception (displayException)
 
 data PlaidLinkInstitution = PlaidLinkInstitution
   { _plaidLinkInstitution_name :: !Text
@@ -66,10 +71,8 @@ data PlaidLinkProduct
   deriving (Bounded, Enum, Eq, Ord, Show)
 
 data PlaidLinkConfig = PlaidLinkConfig
-  { _plaidLinkConfig_clientName :: !Text
-  , _plaidLinkConfig_env :: !PlaidLinkEnvironment
-  , _plaidLinkConfig_publicKey :: !Text
-  , _plaidLinkConfig_products :: ![PlaidLinkProduct]
+  { _plaidLinkConfig_token :: !Text
+  , _plaidLinkConfig_receivedRedirectUri :: !(Maybe Text)
   } deriving (Eq, Generic, Show)
 
 
@@ -110,6 +113,7 @@ activatePlaidLinkDialog cfg onResult = do
 
   o ^. jss (t_ "onExit") (fun $ \_ _ args -> case args of
     (errJs : metaJs : _) -> do
+      liftIO $ print @String "from onExit"
       err <- maybeJs mkPlaidErrorFromObj errJs
       institution <- maybeJs mkInstitutionFromObj =<< metaJs ^. js (t_ "institution")
       sessionId <- maybeJs valToText =<< o ^. js (t_ "link_session_id")
@@ -126,22 +130,31 @@ activatePlaidLinkDialog cfg onResult = do
     )
 
   o ^. jss (t_ "onLoad") (fun $ \_ _ _ -> do
+    liftIO $ print @String "from onLoad"
     handle <- liftIO (readMVar handleMVar)
     _ <- handle ^. js0 (t_ "open")
     pure ()
     )
 
-  handle <- jsg (t_ "Plaid") ^. js1 (t_ "create") o
+  o ^. jss (t_ "onEvent") (fun $ \_ _ _ -> do
+    liftIO $ putStrLn "Event has occured"
+    )
+
+  handle <- ( jsg (t_ "Plaid") ^. js1 (t_ "create") o )
+    `catch` (\(e :: JSException) -> do
+      liftIO $ print . displayException $ e
+      pure jsNull
+      )
   liftIO $ putMVar handleMVar handle
   pure ()
 
   where
     plaidLinkConfigAsObj = do
       o <- obj
-      o ^. jss (t_ "clientName") (_plaidLinkConfig_clientName cfg)
-      o ^. jss (t_ "env") (plaidLinkEnvironmentAsText $ _plaidLinkConfig_env cfg)
-      o ^. jss (t_ "key") (_plaidLinkConfig_publicKey cfg)
-      o ^. jss (t_ "product") (plaidLinkProductAsText <$> _plaidLinkConfig_products cfg)
+      o ^. jss (t_ "token") (_plaidLinkConfig_token cfg)
+      case _plaidLinkConfig_receivedRedirectUri cfg of
+        Nothing -> pure ()
+        Just url -> o ^. jss (t_ "receivedRedirectUri") url
       pure o
 
     mkPlaidErrorFromObj o = do
@@ -170,17 +183,17 @@ activatePlaidLinkDialog cfg onResult = do
       Nothing -> pure Nothing
       Just x -> Just <$> f x
 
-    plaidLinkEnvironmentAsText :: PlaidLinkEnvironment -> Text
-    plaidLinkEnvironmentAsText = \case
-      PlaidLinkEnvironment_Sandbox -> "sandbox"
-      PlaidLinkEnvironment_Development -> "development"
-      PlaidLinkEnvironment_Production -> "production"
+    -- plaidLinkEnvironmentAsText :: PlaidLinkEnvironment -> Text
+    -- plaidLinkEnvironmentAsText = \case
+    --   PlaidLinkEnvironment_Sandbox -> "sandbox"
+    --   PlaidLinkEnvironment_Development -> "development"
+    --   PlaidLinkEnvironment_Production -> "production"
 
-    plaidLinkProductAsText :: PlaidLinkProduct -> Text
-    plaidLinkProductAsText = \case
-      PlaidLinkProduct_Auth -> "auth"
-      PlaidLinkProduct_Identity -> "identity"
-      PlaidLinkProduct_Transactions -> "transactions"
+    -- plaidLinkProductAsText :: PlaidLinkProduct -> Text
+    -- plaidLinkProductAsText = \case
+    --   PlaidLinkProduct_Auth -> "auth"
+    --   PlaidLinkProduct_Identity -> "identity"
+    --   PlaidLinkProduct_Transactions -> "transactions"
 
     t_ :: Text -> Text
     t_ = id

@@ -25,12 +25,9 @@ import Data.Text (Text)
 import GHC.Generics (Generic)
 import GHCJS.DOM.Types (JSM, MonadJSM, fromJSValUnchecked, liftJSM)
 import Language.Javascript.JSaddle.Object (fun, js, js0, js1, jsg, jss, obj)
-import Language.Javascript.JSaddle.Value (maybeNullOrUndefined, valToText)
+import Language.Javascript.JSaddle.Value (maybeNullOrUndefined, valToText, JSString)
 
 import Reflex.Dom.Core
-import Language.Javascript.JSaddle.Monad (catch)
-import Language.Javascript.JSaddle ( JSException, jsNull )
-import Control.Exception (displayException)
 
 data PlaidLinkInstitution = PlaidLinkInstitution
   { _plaidLinkInstitution_name :: !Text
@@ -51,7 +48,7 @@ data PlaidLinkExit = PlaidLinkExit
   } deriving (Eq, Generic, Show)
 
 data PlaidLinkError = PlaidLinkError
-  { _plaidLinkError_displayMessage :: !Text
+  { _plaidLinkError_displayMessage :: !(Maybe Text)
   , _plaidLinkError_errorCode :: !Text
   , _plaidLinkError_errorMessage :: !Text
   , _plaidLinkError_errorType :: !Text
@@ -134,14 +131,17 @@ activatePlaidLinkDialog cfg onResult = do
     pure ()
     )
 
-  o ^. jss (t_ "onEvent") (fun $ \_ _ _ -> do
+  o ^. jss (t_ "onEvent") (fun $ \_ _ args -> case args of
+      (eventNameJSVal : metaJs : _) -> do
+        eventName <- filter (/= '"') . show <$> fromJSValUnchecked @JSString eventNameJSVal
+        case eventName of
+          "EXIT" -> handleError o metaJs
+          "ERROR" -> handleError o metaJs
+          _ -> pure ()
+      _ -> pure ()
     )
 
-  handle <- ( jsg (t_ "Plaid") ^. js1 (t_ "create") o )
-    `catch` (\(e :: JSException) -> do
-      liftIO $ print . displayException $ e
-      pure jsNull
-      )
+  handle <- jsg (t_ "Plaid") ^. js1 (t_ "create") o
   liftIO $ putMVar handleMVar handle
   pure ()
 
@@ -155,7 +155,7 @@ activatePlaidLinkDialog cfg onResult = do
       pure o
 
     mkPlaidErrorFromObj o = do
-      displayMessage <- valToText =<< o ^. js (t_ "display_message")
+      displayMessage <- maybeJs valToText =<< o ^. js (t_ "display_message")
       errorCode <- valToText =<< o ^. js (t_ "error_code")
       errorMessage <- valToText =<< o ^. js (t_ "error_message")
       errorType <- valToText =<< o ^. js (t_ "error_type")
@@ -169,12 +169,7 @@ activatePlaidLinkDialog cfg onResult = do
     mkInstitutionFromObj o = do
       name' <- maybeJs valToText =<< o ^. js (t_ "name")
       id' <- maybeJs valToText =<< o ^. js (t_ "institution_id")
-      pure $ case (name', id') of
-        (Just name, Just id_) -> Just PlaidLinkInstitution
-          { _plaidLinkInstitution_name = name
-          , _plaidLinkInstitution_id = id_
-          }
-        _ -> Nothing
+      pure $ PlaidLinkInstitution <$> name' <*> id'
 
     maybeJs f x' = maybeNullOrUndefined x' >>= \case
       Nothing -> pure Nothing
@@ -194,3 +189,22 @@ activatePlaidLinkDialog cfg onResult = do
 
     t_ :: Text -> Text
     t_ = id
+
+    -- version for 'onEvent'
+    mkInstitutionFromObj' o = do
+      name' <- maybeJs valToText =<< o ^. js (t_ "institution_name")
+      id' <- maybeJs valToText =<< o ^. js (t_ "institution_id")
+      pure $ PlaidLinkInstitution <$> name' <*> id'
+
+    handleError o errorJs = do
+      err <- maybeJs mkPlaidErrorFromObj errorJs
+      institution <- mkInstitutionFromObj' errorJs
+      sessionId <- maybeJs valToText =<< o ^. js (t_ "link_session_id")
+      status <- maybeJs valToText =<< o ^. js (t_ "status")
+
+      onResult $ Left PlaidLinkExit
+        { _plaidLinkExit_error = err
+        , _plaidLinkExit_institution = institution
+        , _plaidLinkExit_sessionId = fromMaybe "" sessionId
+        , _plaidLinkExit_status = status
+        }

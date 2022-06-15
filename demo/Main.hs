@@ -9,20 +9,18 @@ import Reflex.Dom.Plaid.Link
 
 main :: IO ()
 main = mainWidgetWithHead headSection $ do
-  el "label" (text "Public Key")
-  pubKeyDyn <- _textInput_value <$> textInput def
+  el "label" (text "public_link_token")
+  publicLinkTokenDyn <- value <$> inputElement def
 
   el "hr" blank
 
   go <- button "Open Plaid Dialog"
-  dyn_ $ ffor pubKeyDyn $ \pubKey -> do
+  dyn_ $ ffor publicLinkTokenDyn $ \publicLinkToken -> do
     text "You can use 'user_good' / 'pass_good' for test credentials in the sandbox"
     el "br" blank
     done <- plaidLinkDialog (PlaidLinkConfig
-      { _plaidLinkConfig_clientName = "Test"
-      , _plaidLinkConfig_env = PlaidLinkEnvironment_Sandbox
-      , _plaidLinkConfig_publicKey = pubKey
-      , _plaidLinkConfig_products = [PlaidLinkProduct_Transactions]
+      { _plaidLinkConfig_token = publicLinkToken
+      , _plaidLinkConfig_receivedRedirectUri = Nothing
       } <$ go)
 
     el "br" blank

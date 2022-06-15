@@ -7,7 +7,6 @@
 
 module Reflex.Dom.Plaid.Link
   ( PlaidLinkConfig(..)
-  , PlaidLinkEnvironment(..)
   , PlaidLinkError(..)
   , PlaidLinkExit(..)
   , PlaidLinkInstitution(..)
@@ -55,13 +54,6 @@ data PlaidLinkError = PlaidLinkError
   , _plaidLinkError_errorMessage :: !Text
   , _plaidLinkError_errorType :: !Text
   } deriving (Eq, Generic, Show)
-
-
-data PlaidLinkEnvironment
-  = PlaidLinkEnvironment_Sandbox
-  | PlaidLinkEnvironment_Development
-  | PlaidLinkEnvironment_Production
-  deriving (Bounded, Enum, Eq, Ord, Show)
 
 data PlaidLinkProduct
   = PlaidLinkProduct_Auth

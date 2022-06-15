@@ -1,3 +1,4 @@
 packages:
   reflex-dom-plaid/
   demo/
+  plaid-api-client/

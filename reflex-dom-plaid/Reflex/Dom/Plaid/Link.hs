@@ -25,9 +25,11 @@ import Data.Text (Text)
 import GHC.Generics (Generic)
 import GHCJS.DOM.Types (JSM, MonadJSM, fromJSValUnchecked, liftJSM)
 import Language.Javascript.JSaddle.Object (fun, js, js0, js1, jsg, jss, obj)
-import Language.Javascript.JSaddle.Value (maybeNullOrUndefined, valToText, JSString)
+import Language.Javascript.JSaddle.Value (maybeNullOrUndefined, valToText)
 
 import Reflex.Dom.Core
+import qualified Data.Text as T
+import Data.Functor (($>))
 
 data PlaidLinkInstitution = PlaidLinkInstitution
   { _plaidLinkInstitution_name :: !Text
@@ -108,21 +110,25 @@ activatePlaidLinkDialog cfg onResult = do
     _ -> liftIO $ putStrLn "Plaid onSuccess called with unexpected number of arguments"
     )
 
-  o ^. jss (t_ "onExit") (fun $ \_ _ args -> case args of
-    (errJs : metaJs : _) -> do
-      err <- maybeJs mkPlaidErrorFromObj errJs
-      institution <- maybeJs mkInstitutionFromObj =<< metaJs ^. js (t_ "institution")
-      sessionId <- maybeJs valToText =<< o ^. js (t_ "link_session_id")
-      status <- maybeJs valToText =<< o ^. js (t_ "status")
+  o ^. jss (t_ "onExit") (fun $ \_ _ args -> do
+    case args of
+      (errJs : metaJs : _) -> do
+        err <- maybeJs mkPlaidErrorFromObj errJs
+        institution <- maybeJs mkInstitutionFromObj =<< metaJs ^. js (t_ "institution")
+        sessionId <- maybeJs valToText =<< o ^. js (t_ "link_session_id")
+        status <- maybeJs valToText =<< o ^. js (t_ "status")
 
-      onResult $ Left PlaidLinkExit
-        { _plaidLinkExit_error = err
-        , _plaidLinkExit_institution = join institution
-        , _plaidLinkExit_sessionId = fromMaybe "" sessionId
-        , _plaidLinkExit_status = status
-        }
 
-    _ -> liftIO $ putStrLn "Plaid onExit called with unexpected number of arguments"
+        onResult $ Left PlaidLinkExit
+          { _plaidLinkExit_error = err
+          , _plaidLinkExit_institution = join institution
+          , _plaidLinkExit_sessionId = fromMaybe "" sessionId
+          , _plaidLinkExit_status = status
+          }
+
+      _ -> liftIO $ putStrLn "Plaid onExit called with unexpected number of arguments"
+
+    liftIO ( readMVar handleMVar ) >>= \h -> h ^. js0 (t_ "destroy") $> ()
     )
 
   o ^. jss (t_ "onLoad") (fun $ \_ _ _ -> do
@@ -133,12 +139,25 @@ activatePlaidLinkDialog cfg onResult = do
 
   o ^. jss (t_ "onEvent") (fun $ \_ _ args -> case args of
       (eventNameJSVal : metaJs : _) -> do
-        eventName <- filter (/= '"') . show <$> fromJSValUnchecked @JSString eventNameJSVal
+        eventName <- T.filter (/= '"') <$> fromJSValUnchecked @Text eventNameJSVal
         case eventName of
-          "EXIT" -> handleError o metaJs
-          "ERROR" -> handleError o metaJs
+          "EXIT" -> do
+            err <- maybeJs mkPlaidErrorFromObj metaJs
+            institution <- mkInstitutionFromObj' metaJs
+            sessionId <- maybeJs valToText =<< o ^. js (t_ "link_session_id")
+            status <- maybeJs valToText =<< o ^. js (t_ "status")
+
+            onResult $ Left PlaidLinkExit
+              { _plaidLinkExit_error = err
+              , _plaidLinkExit_institution = institution
+              , _plaidLinkExit_sessionId = fromMaybe "" sessionId
+              , _plaidLinkExit_status = status
+              }
+
+            liftIO ( readMVar handleMVar ) >>= \h -> h ^. js0 (t_ "destroy") $> ()
           _ -> pure ()
-      _ -> pure ()
+
+      _ -> liftIO $ putStrLn "Plaid onEvent called with unexpected number of arguments"
     )
 
   handle <- jsg (t_ "Plaid") ^. js1 (t_ "create") o
@@ -175,36 +194,11 @@ activatePlaidLinkDialog cfg onResult = do
       Nothing -> pure Nothing
       Just x -> Just <$> f x
 
-    -- plaidLinkEnvironmentAsText :: PlaidLinkEnvironment -> Text
-    -- plaidLinkEnvironmentAsText = \case
-    --   PlaidLinkEnvironment_Sandbox -> "sandbox"
-    --   PlaidLinkEnvironment_Development -> "development"
-    --   PlaidLinkEnvironment_Production -> "production"
-
-    -- plaidLinkProductAsText :: PlaidLinkProduct -> Text
-    -- plaidLinkProductAsText = \case
-    --   PlaidLinkProduct_Auth -> "auth"
-    --   PlaidLinkProduct_Identity -> "identity"
-    --   PlaidLinkProduct_Transactions -> "transactions"
-
     t_ :: Text -> Text
     t_ = id
 
-    -- version for 'onEvent'
+    -- | Construct 'PlaidLinkInstitution' for "onEvent" handler argument.
     mkInstitutionFromObj' o = do
       name' <- maybeJs valToText =<< o ^. js (t_ "institution_name")
       id' <- maybeJs valToText =<< o ^. js (t_ "institution_id")
       pure $ PlaidLinkInstitution <$> name' <*> id'
-
-    handleError o errorJs = do
-      err <- maybeJs mkPlaidErrorFromObj errorJs
-      institution <- mkInstitutionFromObj' errorJs
-      sessionId <- maybeJs valToText =<< o ^. js (t_ "link_session_id")
-      status <- maybeJs valToText =<< o ^. js (t_ "status")
-
-      onResult $ Left PlaidLinkExit
-        { _plaidLinkExit_error = err
-        , _plaidLinkExit_institution = institution
-        , _plaidLinkExit_sessionId = fromMaybe "" sessionId
-        , _plaidLinkExit_status = status
-        }

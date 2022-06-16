@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
-module ThePlaid.Types (
+module Plaid.Types (
   ACHClass (..),
   APR (..),
   AccountAccess (..),

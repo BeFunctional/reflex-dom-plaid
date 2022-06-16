@@ -31,7 +31,7 @@ jobs:
       - uses: cachix/cachix-action@v10
         with:
           name: reflex-dom-plaid
-      #           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - run: nix-build --version
       - name: build-lib

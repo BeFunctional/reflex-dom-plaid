@@ -10,6 +10,7 @@ in reflex-platform.project ({ pkgs, ... }: {
   packages = {
     reflex-dom-plaid = ./reflex-dom-plaid;
     demo = ./demo;
+    plaid-rest-api-generated = ./plaid-rest-api-generated;
   };
 
   shells = {

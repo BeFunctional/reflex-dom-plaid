@@ -17,9 +17,11 @@ maintainer:          kirillfx@gmail.com
 build-type:          Simple
 extra-source-files:  CHANGELOG.md
 
+
 library
   exposed-modules:
     Reflex.Dom.Plaid.Backend.Storage
+    Reflex.Dom.Plaid.Backend.Storage.StateT
   hs-source-dirs: src
   ghc-options:
     -Wall
@@ -29,9 +31,23 @@ library
   build-depends:
       base 
     , lens 
-    , mtl 
-    , text 
+    , mtl
+    , transformers
+    , text
+    , containers
+    , unordered-containers
+    , hashable
+    , lens
   default-language: Haskell2010
+  extensions:
+    DerivingStrategies
+    DeriveGeneric
+    DeriveAnyClass
+    DeriveFunctor
+    GeneralisedNewtypeDeriving
+    FlexibleContexts
+
+
 
 executable reflex-dom-plaid-backend
   main-is:             Main.hs

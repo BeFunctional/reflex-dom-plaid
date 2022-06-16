@@ -7,6 +7,10 @@ let
     sha256 = "0wnnfbr3nqw5q698iw5ms4dv565d4rdgiww8gvd62wwnqr0b7xrb";
   }) { inherit hlsSupport; };
 in reflex-platform.project ({ pkgs, ... }: {
+  overrides = self: super: {
+    hspec-wai = self.callHackage "hspec-wai" "0.9.0" {};
+  };
+
   packages = {
     reflex-dom-plaid = ./reflex-dom-plaid;
     demo = ./demo;

@@ -13,7 +13,7 @@
 {-# OPTIONS_GHC
 -fno-warn-unused-binds -fno-warn-unused-imports -freduction-depth=328 #-}
 
-module ThePlaid.API
+module Plaid.API
   ( -- * Client and Server
     Config(..)
   , ThePlaidBackend(..)
@@ -31,7 +31,7 @@ module ThePlaid.API
   , serverWaiApplicationThePlaid
   ) where
 
-import           ThePlaid.Types
+import           Plaid.Types
 
 import           Control.Monad.Catch                (Exception, MonadThrow, throwM)
 import           Control.Monad.Except               (ExceptT, runExceptT)

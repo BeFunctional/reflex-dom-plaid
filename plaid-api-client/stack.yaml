@@ -1,8 +1,0 @@
-resolver: lts-14.27
-extra-deps: []
-packages:
-- '.'
-nix:
-  enable: false
-  packages:
-    - zlib

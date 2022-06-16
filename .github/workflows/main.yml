@@ -40,5 +40,5 @@ jobs:
           package much-obliged
               ghc-options: -Werror
           EOF
-          nix-shell -A shells.ghc --arg hlsSupport 0 --run 'cabal new-build all'
-          nix-shell -A shells.ghc --arg hlsSupport 0 --run 'cabal v2-haddock'
+          nix-shell -A shells.ghc --arg hlsSupport false --run 'cabal new-build all'
+          nix-shell -A shells.ghc --arg hlsSupport false --run 'cabal v2-haddock'

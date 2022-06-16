@@ -31,14 +31,14 @@ jobs:
       - uses: cachix/cachix-action@v10
         with:
           name: reflex-dom-plaid
-#           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      #           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - run: nix-build --version
       - name: build-lib
         run: |
           cat <<EOF > cabal.project.local
-            package much-obliged
-                ghc-options: -Werror
-            EOF
+          package much-obliged
+              ghc-options: -Werror
+          EOF
           nix-shell -A shells.ghc --run 'cabal new-build all'
           nix-shell -A shells.ghc --run 'cabal v2-haddock'

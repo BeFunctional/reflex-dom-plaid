@@ -14,6 +14,7 @@ in reflex-platform.project ({ pkgs, ... }: {
   packages = {
     reflex-dom-plaid = ./reflex-dom-plaid;
     demo = ./demo;
+    reflex-dom-plaid-backend = ./reflex-dom-plaid-backend;
     plaid-rest-api-generated = ./plaid-rest-api-generated;
   };
 

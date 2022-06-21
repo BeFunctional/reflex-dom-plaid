@@ -1,0 +1,69 @@
+cabal-version:       >=1.10
+-- Initial package description 'reflex-dom-plaid-backend.cabal' generated
+-- by 'cabal init'.  For further documentation, see
+-- http://haskell.org/cabal/users-guide/
+
+name:                reflex-dom-plaid-backend
+version:             0.0.1
+-- synopsis:
+-- description:
+-- bug-reports:
+-- license:
+license-file:        LICENSE
+author:              kirillfx
+maintainer:          kirillfx@gmail.com
+-- copyright:
+-- category:
+build-type:          Simple
+extra-source-files:  CHANGELOG.md
+
+
+library
+  exposed-modules:
+    Reflex.Dom.Plaid.Backend.Storage
+    Reflex.Dom.Plaid.Backend.Storage.StateT
+  hs-source-dirs: src
+  ghc-options:
+    -Wall
+    -Wincomplete-uni-patterns
+    -Wincomplete-record-updates
+    -O2
+  build-depends:
+      base 
+    , lens 
+    , mtl
+    , transformers
+    , text
+    , containers
+    , unordered-containers
+    , hashable
+    , lens
+  default-language: Haskell2010
+  extensions:
+    DerivingStrategies
+    DeriveGeneric
+    DeriveAnyClass
+    DeriveFunctor
+    GeneralisedNewtypeDeriving
+    FlexibleContexts
+
+
+
+executable reflex-dom-plaid-backend
+  main-is:             Main.hs
+  -- other-modules:
+  -- other-extensions:
+  build-depends:
+      base
+    , mtl
+    , lens
+    , text
+    , bytestring
+    , containers
+  -- hs-source-dirs:
+  ghc-options:
+    -Wall
+    -Wincomplete-uni-patterns
+    -Wincomplete-record-updates
+    -O2
+  default-language:    Haskell2010

@@ -1,17 +1,9 @@
 module Reflex.Dom.Plaid.Backend.Storage where
 
 import Control.Monad.Except
-import Data.Hashable (Hashable)
 import Data.Text (Text)
 import GHC.Generics (Generic)
-
-newtype PlaidUserId = PlaidUserId Text
-  deriving stock (Generic)
-  deriving newtype (Show, Eq, Hashable)
-
-newtype PlaidAccessToken = PlaidAccessToken Text
-  deriving stock (Generic)
-  deriving newtype (Show, Eq)
+import Reflex.Dom.Plaid
 
 data PlaidStorageError
   = PlaidAccessTokenNotFound PlaidUserId

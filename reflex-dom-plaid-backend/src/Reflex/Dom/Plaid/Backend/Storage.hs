@@ -3,7 +3,7 @@ module Reflex.Dom.Plaid.Backend.Storage where
 import Control.Monad.Except
 import Data.Text (Text)
 import GHC.Generics (Generic)
-import Reflex.Dom.Plaid
+import Reflex.Dom.Plaid.Common
 
 data PlaidStorageError
   = PlaidAccessTokenNotFound PlaidUserId

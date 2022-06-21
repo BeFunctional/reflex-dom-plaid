@@ -3,3 +3,4 @@ packages:
   reflex-dom-plaid-backend/
   demo/
   plaid-rest-api-generated/
+  reflex-dom-plaid-common/

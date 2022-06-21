@@ -1,4 +1,4 @@
-module Reflex.Dom.Plaid where
+module Reflex.Dom.Plaid.Common where
 
 import Data.Hashable (Hashable)
 import Data.Text (Text)

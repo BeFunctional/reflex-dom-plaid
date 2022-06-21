@@ -7,7 +7,7 @@ import Control.Monad.State (StateT)
 import Control.Monad.State.Class (MonadState)
 import Control.Monad.Trans.Except
 import Data.HashMap.Strict (HashMap)
-import Reflex.Dom.Plaid
+import Reflex.Dom.Plaid.Common
 import Reflex.Dom.Plaid.Backend.Storage
 
 type TokenMap = HashMap PlaidUserId PlaidAccessToken

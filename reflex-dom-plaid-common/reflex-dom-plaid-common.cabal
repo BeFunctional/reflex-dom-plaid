@@ -33,6 +33,8 @@ library
     , mtl
     , transformers
     , text
+    , aeson
+    , deepseq
     , containers
     , unordered-containers
     , hashable

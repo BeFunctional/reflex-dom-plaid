@@ -2,3 +2,4 @@ packages:
   reflex-dom-plaid/
   reflex-dom-plaid-backend/
   demo/
+  plaid-rest-api-generated/

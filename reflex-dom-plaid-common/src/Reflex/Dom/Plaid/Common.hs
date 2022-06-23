@@ -10,7 +10,7 @@ newtype PlaidUserId = PlaidUserId Text
   deriving stock (Generic)
   deriving newtype (Show, Eq, Hashable, NFData, ToJSON, FromJSON)
 
-newtype PlaidPublicToken = PlaidPublicToken Text
+newtype PlaidPublicToken = PlaidPublicToken { unPlaidPublicToken :: Text }
   deriving stock (Generic)
   deriving newtype (Show, Eq, NFData, ToJSON, FromJSON)
 

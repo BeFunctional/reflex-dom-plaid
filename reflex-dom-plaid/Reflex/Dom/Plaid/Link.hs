@@ -1,10 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ScopedTypeVariables#-}
-{-# LANGUAGE TypeApplications #-}
-
 module Reflex.Dom.Plaid.Link
   ( PlaidLinkConfig(..)
   , PlaidLinkError(..)
@@ -13,6 +6,7 @@ module Reflex.Dom.Plaid.Link
   , PlaidLinkProduct(..)
   , PlaidLinkSuccess(..)
   , plaidLinkDialog
+  , mkPlaidLinkConfig
   ) where
 
 import Control.Concurrent.MVar (newEmptyMVar, putMVar, readMVar)
@@ -25,47 +19,59 @@ import GHC.Generics (Generic)
 import GHCJS.DOM.Types (JSM, MonadJSM, fromJSValUnchecked, liftJSM)
 import Language.Javascript.JSaddle.Object (fun, js, js0, js1, jsg, jss, obj)
 import Language.Javascript.JSaddle.Value (maybeNullOrUndefined, valToText)
+import Data.Aeson (ToJSON, FromJSON)
 
 import Reflex.Dom.Core
 import qualified Data.Text as T
 import Data.Functor (($>))
+import Reflex.Dom.Plaid.Common (PlaidPublicToken(..))
 
 data PlaidLinkInstitution = PlaidLinkInstitution
   { _plaidLinkInstitution_name :: !Text
   , _plaidLinkInstitution_id :: !Text
-  } deriving (Eq, Generic, Show)
+  }
+  deriving stock (Eq, Generic, Show)
+  deriving anyclass (ToJSON, FromJSON)
 
 data PlaidLinkSuccess = PlaidLinkSuccess
   { _plaidLinkSuccess_publicToken :: !Text
   , _plaidLinkSuccess_institution :: !PlaidLinkInstitution
   , _plaidLinkSuccess_sessionId :: !Text
-  } deriving (Eq, Generic, Show)
+  }
+  deriving (Eq, Generic, Show)
+  deriving anyclass (ToJSON, FromJSON)
 
 data PlaidLinkExit = PlaidLinkExit
   { _plaidLinkExit_error :: !(Maybe PlaidLinkError)
   , _plaidLinkExit_institution :: !(Maybe PlaidLinkInstitution)
   , _plaidLinkExit_status :: !(Maybe Text)
   , _plaidLinkExit_sessionId :: !Text
-  } deriving (Eq, Generic, Show)
+  }
+  deriving (Eq, Generic, Show)
+  deriving anyclass (ToJSON, FromJSON)
 
 data PlaidLinkError = PlaidLinkError
   { _plaidLinkError_displayMessage :: !(Maybe Text)
   , _plaidLinkError_errorCode :: !Text
   , _plaidLinkError_errorMessage :: !Text
   , _plaidLinkError_errorType :: !Text
-  } deriving (Eq, Generic, Show)
+  }
+  deriving (Eq, Generic, Show)
+  deriving anyclass (ToJSON, FromJSON)
 
 data PlaidLinkProduct
   = PlaidLinkProduct_Auth
   | PlaidLinkProduct_Identity
   | PlaidLinkProduct_Transactions
-  deriving (Bounded, Enum, Eq, Ord, Show)
+  deriving stock (Bounded, Enum, Eq, Ord, Show)
 
 data PlaidLinkConfig = PlaidLinkConfig
   { _plaidLinkConfig_token :: !Text
   , _plaidLinkConfig_receivedRedirectUri :: !(Maybe Text)
   } deriving (Eq, Generic, Show)
 
+mkPlaidLinkConfig :: PlaidPublicToken -> Maybe Text -> PlaidLinkConfig
+mkPlaidLinkConfig (PlaidPublicToken t) = PlaidLinkConfig t
 
 plaidLinkDialog
   :: (TriggerEvent t m, PerformEvent t m, MonadJSM (Performable m))

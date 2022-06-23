@@ -14,6 +14,10 @@ newtype PlaidPublicToken = PlaidPublicToken { unPlaidPublicToken :: Text }
   deriving stock (Generic)
   deriving newtype (Show, Eq, NFData, ToJSON, FromJSON)
 
+newtype PlaidLinkToken = PlaidLinkToken { unPlaidLinkToken :: Text }
+  deriving stock (Generic)
+  deriving newtype (Show, Eq, NFData, ToJSON, FromJSON)
+
 newtype PlaidAccessToken = PlaidAccessToken Text
   deriving stock (Generic)
   deriving newtype (Show, Eq, NFData, ToJSON, FromJSON)

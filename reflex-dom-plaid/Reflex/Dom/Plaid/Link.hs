@@ -34,7 +34,7 @@ data PlaidLinkInstitution = PlaidLinkInstitution
   deriving anyclass (ToJSON, FromJSON)
 
 data PlaidLinkSuccess = PlaidLinkSuccess
-  { _plaidLinkSuccess_publicToken :: !Text
+  { _plaidLinkSuccess_publicToken :: !PlaidPublicToken
   , _plaidLinkSuccess_institution :: !PlaidLinkInstitution
   , _plaidLinkSuccess_sessionId :: !Text
   }
@@ -100,7 +100,7 @@ activatePlaidLinkDialog cfg onResult = do
           pubToken <- fromJSValUnchecked pubTokenJs
           sessionId <- maybeJs valToText =<< metaJs ^. js (t_ "link_session_id")
           onResult $ Right PlaidLinkSuccess
-            { _plaidLinkSuccess_publicToken = pubToken
+            { _plaidLinkSuccess_publicToken = PlaidPublicToken pubToken
             , _plaidLinkSuccess_institution = institution
             , _plaidLinkSuccess_sessionId = fromMaybe "" sessionId
             }

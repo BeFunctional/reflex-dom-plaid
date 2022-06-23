@@ -18,5 +18,6 @@ executable demo
       base
     , reflex-dom
     , reflex-dom-plaid
+    , reflex-dom-plaid-common
   default-language: Haskell2010
 

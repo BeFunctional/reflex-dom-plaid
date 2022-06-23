@@ -5,6 +5,7 @@ module Main where
 import Reflex.Dom
 
 import Reflex.Dom.Plaid.Link
+import Reflex.Dom.Plaid.Common
 
 
 main :: IO ()
@@ -19,7 +20,7 @@ main = mainWidgetWithHead headSection $ do
     text "You can use 'user_good' / 'pass_good' for test credentials in the sandbox"
     el "br" blank
     done <- plaidLinkDialog (PlaidLinkConfig
-      { _plaidLinkConfig_token = publicLinkToken
+      { _plaidLinkConfig_token = PlaidLinkToken publicLinkToken
       , _plaidLinkConfig_receivedRedirectUri = Nothing
       } <$ go)
 

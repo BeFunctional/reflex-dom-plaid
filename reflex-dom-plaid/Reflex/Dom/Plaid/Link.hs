@@ -24,7 +24,7 @@ import Data.Aeson (ToJSON, FromJSON)
 import Reflex.Dom.Core
 import qualified Data.Text as T
 import Data.Functor (($>))
-import Reflex.Dom.Plaid.Common (PlaidPublicToken(..))
+import Reflex.Dom.Plaid.Common (PlaidPublicToken(..), PlaidLinkToken (unPlaidLinkToken))
 
 data PlaidLinkInstitution = PlaidLinkInstitution
   { _plaidLinkInstitution_name :: !Text
@@ -66,12 +66,12 @@ data PlaidLinkProduct
   deriving stock (Bounded, Enum, Eq, Ord, Show)
 
 data PlaidLinkConfig = PlaidLinkConfig
-  { _plaidLinkConfig_token :: !Text
+  { _plaidLinkConfig_token :: !PlaidLinkToken
   , _plaidLinkConfig_receivedRedirectUri :: !(Maybe Text)
   } deriving (Eq, Generic, Show)
 
-mkPlaidLinkConfig :: PlaidPublicToken -> Maybe Text -> PlaidLinkConfig
-mkPlaidLinkConfig (PlaidPublicToken t) = PlaidLinkConfig t
+mkPlaidLinkConfig :: PlaidLinkToken  -> Maybe Text -> PlaidLinkConfig
+mkPlaidLinkConfig t = PlaidLinkConfig t
 
 plaidLinkDialog
   :: (TriggerEvent t m, PerformEvent t m, MonadJSM (Performable m))
@@ -165,7 +165,7 @@ activatePlaidLinkDialog cfg onResult = do
   where
     plaidLinkConfigAsObj = do
       o <- obj
-      o ^. jss (t_ "token") (_plaidLinkConfig_token cfg)
+      o ^. jss (t_ "token") (unPlaidLinkToken . _plaidLinkConfig_token $ cfg)
       case _plaidLinkConfig_receivedRedirectUri cfg of
         Nothing -> pure ()
         Just url -> o ^. jss (t_ "receivedRedirectUri") url

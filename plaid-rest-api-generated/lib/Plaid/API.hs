@@ -657,15 +657,21 @@ runThePlaidClientWithManager manager Config{..} cl = do
 
 -- | Like @runClient@, but returns the response or throws
 --   a ThePlaidClientError
-callThePlaid
+callThePlaid'
   :: (MonadIO m, MonadThrow m)
   => ClientEnv -> ThePlaidClient a -> m a
-callThePlaid env f = do
+callThePlaid' env f = do
   res <- liftIO $ runExceptT $ runClient f env
   case res of
     Left err       -> throwM (ThePlaidClientError err)
     Right response -> pure response
 
+
+callThePlaid
+  :: (MonadIO m, MonadError ClientError m)
+  => ClientEnv -> ThePlaidClient a -> m a
+callThePlaid env f = do
+  liftIO $ runClient f env
 
 requestMiddlewareId :: Wai.Application -> Wai.Application
 requestMiddlewareId a = a

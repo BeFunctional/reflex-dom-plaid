@@ -34,7 +34,7 @@ module Plaid.API
 import           Plaid.Types
 
 import           Control.Monad.Catch                (Exception, MonadThrow, throwM)
-import           Control.Monad.Except               (ExceptT, runExceptT)
+import           Control.Monad.Except               (ExceptT, runExceptT, MonadError, liftEither)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Reader         (ReaderT (..))
 import           Data.Aeson                         (Value)
@@ -657,21 +657,22 @@ runThePlaidClientWithManager manager Config{..} cl = do
 
 -- | Like @runClient@, but returns the response or throws
 --   a ThePlaidClientError
-callThePlaid'
-  :: (MonadIO m, MonadThrow m)
-  => ClientEnv -> ThePlaidClient a -> m a
-callThePlaid' env f = do
-  res <- liftIO $ runExceptT $ runClient f env
-  case res of
-    Left err       -> throwM (ThePlaidClientError err)
-    Right response -> pure response
+-- callThePlaid'
+--   :: (MonadIO m, MonadThrow m)
+--   => ClientEnv -> ThePlaidClient a -> m a
+-- callThePlaid' env f = do
+--   res <- liftIO $ runExceptT $ runClient f env
+--   case res of
+--     Left err       -> throwM (ThePlaidClientError err)
+--     Right response -> pure response
 
 
 callThePlaid
   :: (MonadIO m, MonadError ClientError m)
   => ClientEnv -> ThePlaidClient a -> m a
-callThePlaid env f = do
-  liftIO $ runClient f env
+callThePlaid env f = do 
+  eRes <- liftIO $ runExceptT $ runClient f env
+  liftEither eRes
 
 requestMiddlewareId :: Wai.Application -> Wai.Application
 requestMiddlewareId a = a

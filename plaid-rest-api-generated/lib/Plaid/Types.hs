@@ -1,6 +1,9 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE DerivingStrategies         #-}
+{-# LANGUAGE DeriveAnyClass             #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types (
@@ -821,6 +824,7 @@ module Plaid.Types (
   YTDNetIncomeSummaryFieldNumber (..),
   ) where
 
+import Data.String
 import Data.Data (Data)
 import Data.UUID (UUID)
 import Data.List (stripPrefix)
@@ -1885,14 +1889,11 @@ instance ToJSON ConnectedApplication where
 
 
 -- | ISO-3166-1 alpha-2 country code standard.
-data CountryCode = CountryCode
-  { 
-  } deriving (Show, Eq, Generic, Data)
-
-instance FromJSON CountryCode where
-  parseJSON = genericParseJSON (removeFieldLabelPrefix True "countryCode")
-instance ToJSON CountryCode where
-  toJSON = genericToJSON (removeFieldLabelPrefix False "countryCode")
+newtype CountryCode = CountryCode
+  { unCountryCode :: Text
+  } 
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON, IsString)
 
 
 -- | Request input for creating an entity screening review

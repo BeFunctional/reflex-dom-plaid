@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.UserCreateResponse ( UserCreateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | UserCreateResponse defines the response schema for &#x60;/user/create&#x60;
-newtype UserCreateResponse = UserCreateResponse { unUserCreateResponse :: (Map.Map Text Value) }
+newtype UserCreateResponse = UserCreateResponse { unUserCreateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.UpdateIndividualScreeningRequestResettableField ( UpdateIndividualScreeningRequestResettableField (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The name of a field that can be reset back to null
 data UpdateIndividualScreeningRequestResettableField = UpdateIndividualScreeningRequestResettableField
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON UpdateIndividualScreeningRequestResettableField where

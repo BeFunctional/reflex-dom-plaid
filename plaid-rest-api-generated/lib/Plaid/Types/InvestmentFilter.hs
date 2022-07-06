@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.InvestmentFilter ( InvestmentFilter (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | A filter to apply to &#x60;investment&#x60;-type accounts (or &#x60;brokerage&#x60;-type accounts for API versions 2018-05-22 and earlier).
-newtype InvestmentFilter = InvestmentFilter { unInvestmentFilter :: (Map.Map Text Value) }
+newtype InvestmentFilter = InvestmentFilter { unInvestmentFilter :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

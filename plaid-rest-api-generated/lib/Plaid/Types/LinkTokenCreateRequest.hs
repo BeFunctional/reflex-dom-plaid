@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.LinkTokenCreateRequest ( LinkTokenCreateRequest (..)  ) where
@@ -28,7 +28,6 @@ import Data.Function ((&))
 import Plaid.Types.Common
 import Plaid.Types.CountryCode
 import Plaid.Types.LinkTokenCreateRequestUser
-import Plaid.Types.Products
 import Plaid.Types.Products
 import Plaid.Types.LinkTokenCreateInstitutionData
 import Plaid.Types.LinkTokenAccountFilters

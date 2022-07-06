@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.AssetsProductReadyWebhook ( AssetsProductReadyWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when the Asset Report has been generated and &#x60;/asset_report/get&#x60; is ready to be called.  If you attempt to retrieve an Asset Report before this webhook has fired, you’ll receive a response with the HTTP status code 400 and a Plaid error code of &#x60;PRODUCT_NOT_READY&#x60;.
-newtype AssetsProductReadyWebhook = AssetsProductReadyWebhook { unAssetsProductReadyWebhook :: (Map.Map Text Value) }
+newtype AssetsProductReadyWebhook = AssetsProductReadyWebhook { unAssetsProductReadyWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

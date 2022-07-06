@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IdentityUpdateTypes ( IdentityUpdateTypes (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The possible types of identity data that may have changed.
 data IdentityUpdateTypes = IdentityUpdateTypes
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON IdentityUpdateTypes where

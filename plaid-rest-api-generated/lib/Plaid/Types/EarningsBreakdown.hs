@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.EarningsBreakdown ( EarningsBreakdown (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | An object representing the earnings line items for the pay period.
-newtype EarningsBreakdown = EarningsBreakdown { unEarningsBreakdown :: (Map.Map Text Value) }
+newtype EarningsBreakdown = EarningsBreakdown { unEarningsBreakdown :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

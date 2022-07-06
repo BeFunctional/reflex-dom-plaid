@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.DepositSwitchTokenCreateResponse ( DepositSwitchTokenCreateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | DepositSwitchTokenCreateResponse defines the response schema for &#x60;/deposit_switch/token/create&#x60;
-newtype DepositSwitchTokenCreateResponse = DepositSwitchTokenCreateResponse { unDepositSwitchTokenCreateResponse :: (Map.Map Text Value) }
+newtype DepositSwitchTokenCreateResponse = DepositSwitchTokenCreateResponse { unDepositSwitchTokenCreateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

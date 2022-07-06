@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IncomeVerificationStatusWebhook ( IncomeVerificationStatusWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when the status of an income verification instance has changed. It will typically take several minutes for this webhook to fire after the end user has uploaded their documents in the Document Income flow.
-newtype IncomeVerificationStatusWebhook = IncomeVerificationStatusWebhook { unIncomeVerificationStatusWebhook :: (Map.Map Text Value) }
+newtype IncomeVerificationStatusWebhook = IncomeVerificationStatusWebhook { unIncomeVerificationStatusWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

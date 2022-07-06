@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentInitiationConsentRevokeResponse ( PaymentInitiationConsentRevokeResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | PaymentInitiationConsentRevokeResponse defines the response schema for &#x60;/payment_initation/consent/revoke&#x60;
-newtype PaymentInitiationConsentRevokeResponse = PaymentInitiationConsentRevokeResponse { unPaymentInitiationConsentRevokeResponse :: (Map.Map Text Value) }
+newtype PaymentInitiationConsentRevokeResponse = PaymentInitiationConsentRevokeResponse { unPaymentInitiationConsentRevokeResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.SingleDocumentRiskSignal ( SingleDocumentRiskSignal (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Object containing all risk signals and relevant metadata for a single document
-newtype SingleDocumentRiskSignal = SingleDocumentRiskSignal { unSingleDocumentRiskSignal :: (Map.Map Text Value) }
+newtype SingleDocumentRiskSignal = SingleDocumentRiskSignal { unSingleDocumentRiskSignal :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

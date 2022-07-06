@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditPayStubEarnings ( CreditPayStubEarnings (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | An object representing both a breakdown of earnings on a pay stub and the total earnings.
-newtype CreditPayStubEarnings = CreditPayStubEarnings { unCreditPayStubEarnings :: (Map.Map Text Value) }
+newtype CreditPayStubEarnings = CreditPayStubEarnings { unCreditPayStubEarnings :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

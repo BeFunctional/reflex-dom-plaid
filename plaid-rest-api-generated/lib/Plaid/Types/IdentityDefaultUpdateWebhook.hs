@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IdentityDefaultUpdateWebhook ( IdentityDefaultUpdateWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when a change to identity data has been detected on an Item.
-newtype IdentityDefaultUpdateWebhook = IdentityDefaultUpdateWebhook { unIdentityDefaultUpdateWebhook :: (Map.Map Text Value) }
+newtype IdentityDefaultUpdateWebhook = IdentityDefaultUpdateWebhook { unIdentityDefaultUpdateWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

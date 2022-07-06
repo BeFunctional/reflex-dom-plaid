@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.EntityScreeningHitAnalysis ( EntityScreeningHitAnalysis (..)  ) where
@@ -26,11 +26,6 @@ import qualified Data.Map as Map
 import GHC.Generics (Generic)
 import Data.Function ((&))
 import Plaid.Types.Common
-import Plaid.Types.MatchSummaryCode
-import Plaid.Types.MatchSummaryCode
-import Plaid.Types.MatchSummaryCode
-import Plaid.Types.MatchSummaryCode
-import Plaid.Types.MatchSummaryCode
 import Plaid.Types.MatchSummaryCode
 
 -- | Analysis information describing why a screening hit matched the provided entity information

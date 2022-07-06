@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.WalletTransactionExecuteResponse ( WalletTransactionExecuteResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | WalletTransactionExecuteResponse defines the response schema for &#x60;/wallet/transaction/execute&#x60;
-newtype WalletTransactionExecuteResponse = WalletTransactionExecuteResponse { unWalletTransactionExecuteResponse :: (Map.Map Text Value) }
+newtype WalletTransactionExecuteResponse = WalletTransactionExecuteResponse { unWalletTransactionExecuteResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

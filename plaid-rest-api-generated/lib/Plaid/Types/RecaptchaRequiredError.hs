@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.RecaptchaRequiredError ( RecaptchaRequiredError (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The request was flagged by Plaid&#39;s fraud system, and requires additional verification to ensure they are not a bot.
-newtype RecaptchaRequiredError = RecaptchaRequiredError { unRecaptchaRequiredError :: (Map.Map Text Value) }
+newtype RecaptchaRequiredError = RecaptchaRequiredError { unRecaptchaRequiredError :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

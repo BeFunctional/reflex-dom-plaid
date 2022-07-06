@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ExternalPaymentInitiationConsentOptions ( ExternalPaymentInitiationConsentOptions (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Additional payment consent options
-newtype ExternalPaymentInitiationConsentOptions = ExternalPaymentInitiationConsentOptions { unExternalPaymentInitiationConsentOptions :: (Map.Map Text Value) }
+newtype ExternalPaymentInitiationConsentOptions = ExternalPaymentInitiationConsentOptions { unExternalPaymentInitiationConsentOptions :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

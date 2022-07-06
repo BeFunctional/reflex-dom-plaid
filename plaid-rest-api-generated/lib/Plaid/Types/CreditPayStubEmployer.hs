@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditPayStubEmployer ( CreditPayStubEmployer (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Information about the employer on the pay stub.
-newtype CreditPayStubEmployer = CreditPayStubEmployer { unCreditPayStubEmployer :: (Map.Map Text Value) }
+newtype CreditPayStubEmployer = CreditPayStubEmployer { unCreditPayStubEmployer :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

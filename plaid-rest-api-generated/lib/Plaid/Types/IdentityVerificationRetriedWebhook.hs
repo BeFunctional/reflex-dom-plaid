@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IdentityVerificationRetriedWebhook ( IdentityVerificationRetriedWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when identity verification has been retried, which can be triggered via the dashboard or the API.
-newtype IdentityVerificationRetriedWebhook = IdentityVerificationRetriedWebhook { unIdentityVerificationRetriedWebhook :: (Map.Map Text Value) }
+newtype IdentityVerificationRetriedWebhook = IdentityVerificationRetriedWebhook { unIdentityVerificationRetriedWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

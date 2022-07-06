@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransactionsRuleType ( TransactionsRuleType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Transaction rule&#39;s match type. For TRANSACTION_ID field, EXACT_MATCH is available. Matches are case sensitive. 
 data TransactionsRuleType = TransactionsRuleType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON TransactionsRuleType where

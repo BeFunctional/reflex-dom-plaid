@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.RiskSignalDocumentReference ( RiskSignalDocumentReference (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Object containing metadata for the document
-newtype RiskSignalDocumentReference = RiskSignalDocumentReference { unRiskSignalDocumentReference :: (Map.Map Text Value) }
+newtype RiskSignalDocumentReference = RiskSignalDocumentReference { unRiskSignalDocumentReference :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

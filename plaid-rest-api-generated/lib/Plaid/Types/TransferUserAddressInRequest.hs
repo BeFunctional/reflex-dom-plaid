@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferUserAddressInRequest ( TransferUserAddressInRequest (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The address associated with the account holder.
-newtype TransferUserAddressInRequest = TransferUserAddressInRequest { unTransferUserAddressInRequest :: (Map.Map Text Value) }
+newtype TransferUserAddressInRequest = TransferUserAddressInRequest { unTransferUserAddressInRequest :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

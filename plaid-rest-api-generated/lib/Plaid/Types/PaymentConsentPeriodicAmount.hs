@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentConsentPeriodicAmount ( PaymentConsentPeriodicAmount (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Defines consent payments limitations per period.
-newtype PaymentConsentPeriodicAmount = PaymentConsentPeriodicAmount { unPaymentConsentPeriodicAmount :: (Map.Map Text Value) }
+newtype PaymentConsentPeriodicAmount = PaymentConsentPeriodicAmount { unPaymentConsentPeriodicAmount :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

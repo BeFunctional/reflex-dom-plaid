@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaystubYTDDetails ( PaystubYTDDetails (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The amount of income earned year to date, as based on paystub data.
-newtype PaystubYTDDetails = PaystubYTDDetails { unPaystubYTDDetails :: (Map.Map Text Value) }
+newtype PaystubYTDDetails = PaystubYTDDetails { unPaystubYTDDetails :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.AssetReportGetResponse ( AssetReportGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | AssetReportGetResponse defines the response schema for &#x60;/asset_report/get&#x60;
-newtype AssetReportGetResponse = AssetReportGetResponse { unAssetReportGetResponse :: (Map.Map Text Value) }
+newtype AssetReportGetResponse = AssetReportGetResponse { unAssetReportGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

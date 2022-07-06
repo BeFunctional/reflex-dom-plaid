@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.SandboxTransferFireWebhookResponse ( SandboxTransferFireWebhookResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Defines the response schema for &#x60;/sandbox/transfer/fire_webhook&#x60;
-newtype SandboxTransferFireWebhookResponse = SandboxTransferFireWebhookResponse { unSandboxTransferFireWebhookResponse :: (Map.Map Text Value) }
+newtype SandboxTransferFireWebhookResponse = SandboxTransferFireWebhookResponse { unSandboxTransferFireWebhookResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

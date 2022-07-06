@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentScheduleInterval ( PaymentScheduleInterval (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The frequency interval of the payment.
 data PaymentScheduleInterval = PaymentScheduleInterval
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON PaymentScheduleInterval where

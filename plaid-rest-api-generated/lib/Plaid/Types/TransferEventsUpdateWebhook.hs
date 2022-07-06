@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferEventsUpdateWebhook ( TransferEventsUpdateWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when new transfer events are available. Receiving this webhook indicates you should fetch the new events from &#x60;/transfer/event/sync&#x60;.
-newtype TransferEventsUpdateWebhook = TransferEventsUpdateWebhook { unTransferEventsUpdateWebhook :: (Map.Map Text Value) }
+newtype TransferEventsUpdateWebhook = TransferEventsUpdateWebhook { unTransferEventsUpdateWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentConsentPeriodicInterval ( PaymentConsentPeriodicInterval (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Payment consent periodic interval.
 data PaymentConsentPeriodicInterval = PaymentConsentPeriodicInterval
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON PaymentConsentPeriodicInterval where

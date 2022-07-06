@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.RelayEvent ( RelayEvent (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The webhook code indicating which endpoint was called. It can be one of &#x60;GET_CALLED&#x60;, &#x60;REFRESH_CALLED&#x60; or &#x60;AUDIT_COPY_CREATE_CALLED&#x60;.
 data RelayEvent = RelayEvent
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON RelayEvent where

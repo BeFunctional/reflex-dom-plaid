@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.AuthSupportedMethods ( AuthSupportedMethods (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Metadata specifically related to which auth methods an institution supports.
-newtype AuthSupportedMethods = AuthSupportedMethods { unAuthSupportedMethods :: (Map.Map Text Value) }
+newtype AuthSupportedMethods = AuthSupportedMethods { unAuthSupportedMethods :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ItemRemoveResponse ( ItemRemoveResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | ItemRemoveResponse defines the response schema for &#x60;/item/remove&#x60;
-newtype ItemRemoveResponse = ItemRemoveResponse { unItemRemoveResponse :: (Map.Map Text Value) }
+newtype ItemRemoveResponse = ItemRemoveResponse { unItemRemoveResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

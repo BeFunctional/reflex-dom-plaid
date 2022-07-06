@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TotalCanonicalDescription ( TotalCanonicalDescription (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Commonly used term to describe the line item.
 data TotalCanonicalDescription = TotalCanonicalDescription
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON TotalCanonicalDescription where

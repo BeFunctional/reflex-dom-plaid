@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IdentityVerificationStepUpdatedWebhook ( IdentityVerificationStepUpdatedWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when an end user has completed a step of the Identity Verification process.
-newtype IdentityVerificationStepUpdatedWebhook = IdentityVerificationStepUpdatedWebhook { unIdentityVerificationStepUpdatedWebhook :: (Map.Map Text Value) }
+newtype IdentityVerificationStepUpdatedWebhook = IdentityVerificationStepUpdatedWebhook { unIdentityVerificationStepUpdatedWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.SignalDecisionReportResponse ( SignalDecisionReportResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | SignalDecisionReportResponse defines the response schema for &#x60;/signal/decision/report&#x60;
-newtype SignalDecisionReportResponse = SignalDecisionReportResponse { unSignalDecisionReportResponse :: (Map.Map Text Value) }
+newtype SignalDecisionReportResponse = SignalDecisionReportResponse { unSignalDecisionReportResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

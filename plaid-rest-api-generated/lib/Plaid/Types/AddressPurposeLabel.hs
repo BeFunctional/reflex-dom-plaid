@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.AddressPurposeLabel ( AddressPurposeLabel (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Field describing whether the associated address is being used for commercial or residential purposes.  Note: This value will be &#x60;no_data&#x60; when Plaid does not have sufficient data to determine the address&#39;s use.
 data AddressPurposeLabel = AddressPurposeLabel
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON AddressPurposeLabel where

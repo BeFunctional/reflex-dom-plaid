@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentInitiationPaymentCreateStatus ( PaymentInitiationPaymentCreateStatus (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | For a payment returned by this endpoint, there is only one possible value:  &#x60;PAYMENT_STATUS_INPUT_NEEDED&#x60;: The initial phase of the payment
 data PaymentInitiationPaymentCreateStatus = PaymentInitiationPaymentCreateStatus
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON PaymentInitiationPaymentCreateStatus where

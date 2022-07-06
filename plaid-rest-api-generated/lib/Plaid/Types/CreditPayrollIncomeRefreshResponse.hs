@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditPayrollIncomeRefreshResponse ( CreditPayrollIncomeRefreshResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | CreditPayrollIncomeRefreshResponse defines the response schema for &#x60;/credit/payroll_income/refresh&#x60;
-newtype CreditPayrollIncomeRefreshResponse = CreditPayrollIncomeRefreshResponse { unCreditPayrollIncomeRefreshResponse :: (Map.Map Text Value) }
+newtype CreditPayrollIncomeRefreshResponse = CreditPayrollIncomeRefreshResponse { unCreditPayrollIncomeRefreshResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

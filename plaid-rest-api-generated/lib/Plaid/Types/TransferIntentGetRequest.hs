@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferIntentGetRequest ( TransferIntentGetRequest (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Defines the request schema for &#x60;/transfer/intent/get&#x60;
-newtype TransferIntentGetRequest = TransferIntentGetRequest { unTransferIntentGetRequest :: (Map.Map Text Value) }
+newtype TransferIntentGetRequest = TransferIntentGetRequest { unTransferIntentGetRequest :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

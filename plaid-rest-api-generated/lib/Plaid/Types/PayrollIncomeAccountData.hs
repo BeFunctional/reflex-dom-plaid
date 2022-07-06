@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PayrollIncomeAccountData ( PayrollIncomeAccountData (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | An object containing account level data.
-newtype PayrollIncomeAccountData = PayrollIncomeAccountData { unPayrollIncomeAccountData :: (Map.Map Text Value) }
+newtype PayrollIncomeAccountData = PayrollIncomeAccountData { unPayrollIncomeAccountData :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

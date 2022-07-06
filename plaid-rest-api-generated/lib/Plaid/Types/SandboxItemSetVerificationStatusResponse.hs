@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.SandboxItemSetVerificationStatusResponse ( SandboxItemSetVerificationStatusResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | SandboxItemSetVerificationStatusResponse defines the response schema for &#x60;/sandbox/item/set_verification_status&#x60;
-newtype SandboxItemSetVerificationStatusResponse = SandboxItemSetVerificationStatusResponse { unSandboxItemSetVerificationStatusResponse :: (Map.Map Text Value) }
+newtype SandboxItemSetVerificationStatusResponse = SandboxItemSetVerificationStatusResponse { unSandboxItemSetVerificationStatusResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

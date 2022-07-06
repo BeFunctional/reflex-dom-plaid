@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.InstitutionsGetResponse ( InstitutionsGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | InstitutionsGetResponse defines the response schema for &#x60;/institutions/get&#x60;
-newtype InstitutionsGetResponse = InstitutionsGetResponse { unInstitutionsGetResponse :: (Map.Map Text Value) }
+newtype InstitutionsGetResponse = InstitutionsGetResponse { unInstitutionsGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

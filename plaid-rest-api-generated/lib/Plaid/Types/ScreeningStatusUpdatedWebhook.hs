@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ScreeningStatusUpdatedWebhook ( ScreeningStatusUpdatedWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when an individual screening status has changed, which can occur manually via the dashboard or during ongoing monitoring.
-newtype ScreeningStatusUpdatedWebhook = ScreeningStatusUpdatedWebhook { unScreeningStatusUpdatedWebhook :: (Map.Map Text Value) }
+newtype ScreeningStatusUpdatedWebhook = ScreeningStatusUpdatedWebhook { unScreeningStatusUpdatedWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

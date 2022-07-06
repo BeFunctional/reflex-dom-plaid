@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IncomeVerificationWebhookStatus ( IncomeVerificationWebhookStatus (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Status of the income verification webhook
-newtype IncomeVerificationWebhookStatus = IncomeVerificationWebhookStatus { unIncomeVerificationWebhookStatus :: (Map.Map Text Value) }
+newtype IncomeVerificationWebhookStatus = IncomeVerificationWebhookStatus { unIncomeVerificationWebhookStatus :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

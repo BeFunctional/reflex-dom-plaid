@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.MortgageInterestRate ( MortgageInterestRate (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Object containing metadata about the interest rate for the mortgage.
-newtype MortgageInterestRate = MortgageInterestRate { unMortgageInterestRate :: (Map.Map Text Value) }
+newtype MortgageInterestRate = MortgageInterestRate { unMortgageInterestRate :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

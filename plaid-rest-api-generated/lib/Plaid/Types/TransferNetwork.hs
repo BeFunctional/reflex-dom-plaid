@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferNetwork ( TransferNetwork (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The network or rails used for the transfer. Valid options are &#x60;ach&#x60; or &#x60;same-day-ach&#x60;.
 data TransferNetwork = TransferNetwork
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON TransferNetwork where

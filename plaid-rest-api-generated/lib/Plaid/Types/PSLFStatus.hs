@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PSLFStatus ( PSLFStatus (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Information about the student&#39;s eligibility in the Public Service Loan Forgiveness program. This is only returned if the institution is Fedloan (&#x60;ins_116527&#x60;). 
-newtype PSLFStatus = PSLFStatus { unPSLFStatus :: (Map.Map Text Value) }
+newtype PSLFStatus = PSLFStatus { unPSLFStatus :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

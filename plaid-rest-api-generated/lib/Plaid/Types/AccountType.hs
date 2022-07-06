@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.AccountType ( AccountType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | &#x60;investment:&#x60; Investment account. In API versions 2018-05-22 and earlier, this type is called &#x60;brokerage&#x60; instead.  &#x60;credit:&#x60; Credit card  &#x60;depository:&#x60; Depository account  &#x60;loan:&#x60; Loan account  &#x60;other:&#x60; Non-specified account type  See the [Account type schema](https://plaid.com/docs/api/accounts#account-type-schema) for a full listing of account types and corresponding subtypes.
 data AccountType = AccountType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON AccountType where

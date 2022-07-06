@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IndividualWatchlistProgramResponse ( IndividualWatchlistProgramResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | A program that configures the active lists, search parameters, and other behavior for initial and ongoing screening of individuals.
-newtype IndividualWatchlistProgramResponse = IndividualWatchlistProgramResponse { unIndividualWatchlistProgramResponse :: (Map.Map Text Value) }
+newtype IndividualWatchlistProgramResponse = IndividualWatchlistProgramResponse { unIndividualWatchlistProgramResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

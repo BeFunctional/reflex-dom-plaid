@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.StandaloneInvestmentTransactionType ( StandaloneInvestmentTransactionType (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Valid values for investment transaction types and subtypes. Note that transactions representing inflow of cash will appear as negative amounts, outflow of cash will appear as positive amounts.
-newtype StandaloneInvestmentTransactionType = StandaloneInvestmentTransactionType { unStandaloneInvestmentTransactionType :: (Map.Map Text Value) }
+newtype StandaloneInvestmentTransactionType = StandaloneInvestmentTransactionType { unStandaloneInvestmentTransactionType :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

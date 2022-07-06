@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PayStubEarningsTotal ( PayStubEarningsTotal (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | An object representing both the current pay period and year to date amount for an earning category.
-newtype PayStubEarningsTotal = PayStubEarningsTotal { unPayStubEarningsTotal :: (Map.Map Text Value) }
+newtype PayStubEarningsTotal = PayStubEarningsTotal { unPayStubEarningsTotal :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

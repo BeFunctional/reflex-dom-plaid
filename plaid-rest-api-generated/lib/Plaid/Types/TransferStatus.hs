@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferStatus ( TransferStatus (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The status of the transfer.
 data TransferStatus = TransferStatus
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON TransferStatus where

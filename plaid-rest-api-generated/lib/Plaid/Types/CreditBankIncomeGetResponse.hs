@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditBankIncomeGetResponse ( CreditBankIncomeGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | CreditBankIncomeGetResponse defines the response schema for &#x60;/credit/bank_income/get&#x60;
-newtype CreditBankIncomeGetResponse = CreditBankIncomeGetResponse { unCreditBankIncomeGetResponse :: (Map.Map Text Value) }
+newtype CreditBankIncomeGetResponse = CreditBankIncomeGetResponse { unCreditBankIncomeGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

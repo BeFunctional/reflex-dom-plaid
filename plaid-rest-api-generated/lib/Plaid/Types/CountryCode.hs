@@ -2,8 +2,8 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CountryCode ( CountryCode (..)  ) where
@@ -30,7 +30,7 @@ import Plaid.Types.Common
 -- | ISO-3166-1 alpha-2 country code standard.
 newtype CountryCode = CountryCode
   { unCountryCode :: Text
-  } 
+  }
   deriving stock (Show, Eq, Generic, Data)
   deriving newtype (ToJSON, FromJSON, IsString)
 

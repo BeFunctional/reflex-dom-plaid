@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferIntentGetFailureReason ( TransferIntentGetFailureReason (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The reason for a failed transfer intent. Returned only if the transfer intent status is &#x60;failed&#x60;. Null otherwise.
-newtype TransferIntentGetFailureReason = TransferIntentGetFailureReason { unTransferIntentGetFailureReason :: (Map.Map Text Value) }
+newtype TransferIntentGetFailureReason = TransferIntentGetFailureReason { unTransferIntentGetFailureReason :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

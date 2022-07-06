@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ProcessorIdentityGetResponse ( ProcessorIdentityGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | ProcessorIdentityGetResponse defines the response schema for &#x60;/processor/identity/get&#x60;
-newtype ProcessorIdentityGetResponse = ProcessorIdentityGetResponse { unProcessorIdentityGetResponse :: (Map.Map Text Value) }
+newtype ProcessorIdentityGetResponse = ProcessorIdentityGetResponse { unProcessorIdentityGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

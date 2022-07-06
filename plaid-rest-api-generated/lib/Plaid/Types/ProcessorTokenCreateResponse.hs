@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ProcessorTokenCreateResponse ( ProcessorTokenCreateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | ProcessorTokenCreateResponse defines the response schema for &#x60;/processor/token/create&#x60; and &#x60;/processor/apex/processor_token/create&#x60;
-newtype ProcessorTokenCreateResponse = ProcessorTokenCreateResponse { unProcessorTokenCreateResponse :: (Map.Map Text Value) }
+newtype ProcessorTokenCreateResponse = ProcessorTokenCreateResponse { unProcessorTokenCreateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.InvestmentsDefaultUpdateWebhook ( InvestmentsDefaultUpdateWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when new or canceled transactions have been detected on an investment account.
-newtype InvestmentsDefaultUpdateWebhook = InvestmentsDefaultUpdateWebhook { unInvestmentsDefaultUpdateWebhook :: (Map.Map Text Value) }
+newtype InvestmentsDefaultUpdateWebhook = InvestmentsDefaultUpdateWebhook { unInvestmentsDefaultUpdateWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.LinkTokenCreateCreditFilter ( LinkTokenCreateCreditFilter (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | A filter to apply to &#x60;credit&#x60;-type accounts
-newtype LinkTokenCreateCreditFilter = LinkTokenCreateCreditFilter { unLinkTokenCreateCreditFilter :: (Map.Map Text Value) }
+newtype LinkTokenCreateCreditFilter = LinkTokenCreateCreditFilter { unLinkTokenCreateCreditFilter :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

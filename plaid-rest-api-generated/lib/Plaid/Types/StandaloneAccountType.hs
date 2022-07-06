@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.StandaloneAccountType ( StandaloneAccountType (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The schema below describes the various &#x60;types&#x60; and corresponding &#x60;subtypes&#x60; that Plaid recognizes and reports for financial institution accounts.
-newtype StandaloneAccountType = StandaloneAccountType { unStandaloneAccountType :: (Map.Map Text Value) }
+newtype StandaloneAccountType = StandaloneAccountType { unStandaloneAccountType :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

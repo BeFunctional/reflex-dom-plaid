@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentInitiationMetadata ( PaymentInitiationMetadata (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Metadata that captures what specific payment configurations an institution supports when making Payment Initiation requests.
-newtype PaymentInitiationMetadata = PaymentInitiationMetadata { unPaymentInitiationMetadata :: (Map.Map Text Value) }
+newtype PaymentInitiationMetadata = PaymentInitiationMetadata { unPaymentInitiationMetadata :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

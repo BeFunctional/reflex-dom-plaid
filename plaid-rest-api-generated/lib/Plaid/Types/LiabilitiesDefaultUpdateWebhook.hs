@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.LiabilitiesDefaultUpdateWebhook ( LiabilitiesDefaultUpdateWebhook (..)  ) where
@@ -35,7 +35,7 @@ data LiabilitiesDefaultUpdateWebhook = LiabilitiesDefaultUpdateWebhook
   , liabilitiesDefaultUpdateWebhookItemUnderscoreid :: Text -- ^ The `item_id` of the Item associated with this webhook, warning, or error
   , liabilitiesDefaultUpdateWebhookError :: PlaidError -- ^ 
   , liabilitiesDefaultUpdateWebhookAccountUnderscoreidsUnderscorewithUnderscorenewUnderscoreliabilities :: [Text] -- ^ An array of `account_id`'s for accounts that contain new liabilities.'
-  , liabilitiesDefaultUpdateWebhookAccountUnderscoreidsUnderscorewithUnderscoreupdatedUnderscoreliabilities :: (Map.Map String [Text]) -- ^ An object with keys of `account_id`'s that are mapped to their respective liabilities fields that changed.  Example: `{ \"XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58\": [\"past_amount_due\"] }` 
+  , liabilitiesDefaultUpdateWebhookAccountUnderscoreidsUnderscorewithUnderscoreupdatedUnderscoreliabilities :: Map.Map String [Text] -- ^ An object with keys of `account_id`'s that are mapped to their respective liabilities fields that changed.  Example: `{ \"XMBvvyMGQ1UoLbKByoMqH3nXMj84ALSdE5B58\": [\"past_amount_due\"] }` 
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON LiabilitiesDefaultUpdateWebhook where

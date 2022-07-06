@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ItemPublicTokenExchangeResponse ( ItemPublicTokenExchangeResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | ItemPublicTokenExchangeResponse defines the response schema for &#x60;/item/public_token/exchange&#x60;
-newtype ItemPublicTokenExchangeResponse = ItemPublicTokenExchangeResponse { unItemPublicTokenExchangeResponse :: (Map.Map Text Value) }
+newtype ItemPublicTokenExchangeResponse = ItemPublicTokenExchangeResponse { unItemPublicTokenExchangeResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

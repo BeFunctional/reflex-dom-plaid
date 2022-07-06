@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.BankTransferEventListDirection ( BankTransferEventListDirection (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Indicates the direction of the transfer: &#x60;outbound&#x60;: for API-initiated transfers &#x60;inbound&#x60;: for payments received by the FBO account.
 data BankTransferEventListDirection = BankTransferEventListDirection
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON BankTransferEventListDirection where

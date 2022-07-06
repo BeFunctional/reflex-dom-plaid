@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PhoneType ( PhoneType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | An enum indicating whether a phone number is a phone line or a fax line.
 data PhoneType = PhoneType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON PhoneType where

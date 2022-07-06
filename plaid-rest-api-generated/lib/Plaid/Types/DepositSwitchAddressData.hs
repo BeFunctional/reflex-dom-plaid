@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.DepositSwitchAddressData ( DepositSwitchAddressData (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The user&#39;s address.
-newtype DepositSwitchAddressData = DepositSwitchAddressData { unDepositSwitchAddressData :: (Map.Map Text Value) }
+newtype DepositSwitchAddressData = DepositSwitchAddressData { unDepositSwitchAddressData :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

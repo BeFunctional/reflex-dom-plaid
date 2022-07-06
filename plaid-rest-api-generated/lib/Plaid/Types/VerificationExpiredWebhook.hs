@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.VerificationExpiredWebhook ( VerificationExpiredWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when an Item was not verified via automated micro-deposits after seven days since the automated micro-deposit was made.
-newtype VerificationExpiredWebhook = VerificationExpiredWebhook { unVerificationExpiredWebhook :: (Map.Map Text Value) }
+newtype VerificationExpiredWebhook = VerificationExpiredWebhook { unVerificationExpiredWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

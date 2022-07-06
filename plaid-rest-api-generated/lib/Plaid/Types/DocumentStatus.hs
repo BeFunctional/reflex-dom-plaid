@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.DocumentStatus ( DocumentStatus (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | An outcome status for this specific document submission. Distinct from the overall &#x60;documentary_verification.status&#x60; that summarizes the verification outcome from one or more documents.
 data DocumentStatus = DocumentStatus
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON DocumentStatus where

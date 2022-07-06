@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.LinkTokenCreateResponse ( LinkTokenCreateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | LinkTokenCreateResponse defines the response schema for &#x60;/link/token/create&#x60;
-newtype LinkTokenCreateResponse = LinkTokenCreateResponse { unLinkTokenCreateResponse :: (Map.Map Text Value) }
+newtype LinkTokenCreateResponse = LinkTokenCreateResponse { unLinkTokenCreateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

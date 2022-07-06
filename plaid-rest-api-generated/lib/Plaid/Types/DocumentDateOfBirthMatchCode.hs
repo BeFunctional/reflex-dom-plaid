@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.DocumentDateOfBirthMatchCode ( DocumentDateOfBirthMatchCode (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | A match summary describing the cross comparison between the subject&#39;s date of birth, extracted from the document image, and the date of birth they separately provided to the identity verification attempt.
 data DocumentDateOfBirthMatchCode = DocumentDateOfBirthMatchCode
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON DocumentDateOfBirthMatchCode where

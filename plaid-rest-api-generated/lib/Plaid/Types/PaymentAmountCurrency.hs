@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentAmountCurrency ( PaymentAmountCurrency (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The ISO-4217 currency code of the payment. For standing orders and payment consents, &#x60;\&quot;GBP\&quot;&#x60; must be used.
 data PaymentAmountCurrency = PaymentAmountCurrency
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON PaymentAmountCurrency where

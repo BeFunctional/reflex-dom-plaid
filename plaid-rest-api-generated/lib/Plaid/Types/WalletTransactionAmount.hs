@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.WalletTransactionAmount ( WalletTransactionAmount (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The amount and currency of a transaction
-newtype WalletTransactionAmount = WalletTransactionAmount { unWalletTransactionAmount :: (Map.Map Text Value) }
+newtype WalletTransactionAmount = WalletTransactionAmount { unWalletTransactionAmount :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

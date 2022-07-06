@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ClientProvidedRawTransaction ( ClientProvidedRawTransaction (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | A client-provided transaction for Plaid to enhance.
-newtype ClientProvidedRawTransaction = ClientProvidedRawTransaction { unClientProvidedRawTransaction :: (Map.Map Text Value) }
+newtype ClientProvidedRawTransaction = ClientProvidedRawTransaction { unClientProvidedRawTransaction :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

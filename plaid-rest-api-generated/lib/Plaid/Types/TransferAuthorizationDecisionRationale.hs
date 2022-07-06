@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferAuthorizationDecisionRationale ( TransferAuthorizationDecisionRationale (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The rationale for Plaid&#39;s decision regarding a proposed transfer. It is always set for &#x60;declined&#x60; decisions, and may or may not be null for &#x60;approved&#x60; decisions.
-newtype TransferAuthorizationDecisionRationale = TransferAuthorizationDecisionRationale { unTransferAuthorizationDecisionRationale :: (Map.Map Text Value) }
+newtype TransferAuthorizationDecisionRationale = TransferAuthorizationDecisionRationale { unTransferAuthorizationDecisionRationale :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

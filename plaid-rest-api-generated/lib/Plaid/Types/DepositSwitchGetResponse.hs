@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.DepositSwitchGetResponse ( DepositSwitchGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | DepositSwitchGetResponse defines the response schema for &#x60;/deposit_switch/get&#x60;
-newtype DepositSwitchGetResponse = DepositSwitchGetResponse { unDepositSwitchGetResponse :: (Map.Map Text Value) }
+newtype DepositSwitchGetResponse = DepositSwitchGetResponse { unDepositSwitchGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

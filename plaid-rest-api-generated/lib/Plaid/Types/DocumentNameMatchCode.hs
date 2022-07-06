@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.DocumentNameMatchCode ( DocumentNameMatchCode (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | A match summary describing the cross comparison between the subject&#39;s name, extracted from the document image, and the name they separately provided to identity verification attempt.
 data DocumentNameMatchCode = DocumentNameMatchCode
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON DocumentNameMatchCode where

@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.WebhookType ( WebhookType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The webhook types that can be fired by this test endpoint.
 data WebhookType = WebhookType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON WebhookType where

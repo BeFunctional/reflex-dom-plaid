@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.AccountSelectionCardinality ( AccountSelectionCardinality (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The application requires that accounts be limited to a specific cardinality. &#x60;MULTI_SELECT&#x60;: indicates that the user should be allowed to pick multiple accounts. &#x60;SINGLE_SELECT&#x60;: indicates that the user should be allowed to pick only a single account. &#x60;ALL&#x60;: indicates that the user must share all of their accounts and should not be given the opportunity to de-select
 data AccountSelectionCardinality = AccountSelectionCardinality
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON AccountSelectionCardinality where

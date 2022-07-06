@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.InstitutionsSearchAccountFilter ( InstitutionsSearchAccountFilter (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | An account filter to apply to institutions search requests
-newtype InstitutionsSearchAccountFilter = InstitutionsSearchAccountFilter { unInstitutionsSearchAccountFilter :: (Map.Map Text Value) }
+newtype InstitutionsSearchAccountFilter = InstitutionsSearchAccountFilter { unInstitutionsSearchAccountFilter :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

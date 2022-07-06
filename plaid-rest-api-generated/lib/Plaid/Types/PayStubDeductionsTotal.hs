@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PayStubDeductionsTotal ( PayStubDeductionsTotal (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | An object representing the total deductions for the pay period
-newtype PayStubDeductionsTotal = PayStubDeductionsTotal { unPayStubDeductionsTotal :: (Map.Map Text Value) }
+newtype PayStubDeductionsTotal = PayStubDeductionsTotal { unPayStubDeductionsTotal :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

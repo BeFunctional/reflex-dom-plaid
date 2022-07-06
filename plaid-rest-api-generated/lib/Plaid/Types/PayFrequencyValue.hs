@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PayFrequencyValue ( PayFrequencyValue (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The frequency of the pay period.
 data PayFrequencyValue = PayFrequencyValue
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON PayFrequencyValue where

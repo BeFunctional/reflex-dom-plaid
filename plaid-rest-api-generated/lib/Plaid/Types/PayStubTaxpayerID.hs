@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PayStubTaxpayerID ( PayStubTaxpayerID (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Taxpayer ID of the individual receiving the paystub.
-newtype PayStubTaxpayerID = PayStubTaxpayerID { unPayStubTaxpayerID :: (Map.Map Text Value) }
+newtype PayStubTaxpayerID = PayStubTaxpayerID { unPayStubTaxpayerID :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

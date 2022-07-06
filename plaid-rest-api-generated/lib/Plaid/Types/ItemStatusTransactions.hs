@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ItemStatusTransactions ( ItemStatusTransactions (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Information about the last successful and failed transactions update for the Item.
-newtype ItemStatusTransactions = ItemStatusTransactions { unItemStatusTransactions :: (Map.Map Text Value) }
+newtype ItemStatusTransactions = ItemStatusTransactions { unItemStatusTransactions :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

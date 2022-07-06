@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentInitiationPaymentTokenCreateResponse ( PaymentInitiationPaymentTokenCreateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | PaymentInitiationPaymentTokenCreateResponse defines the response schema for &#x60;/payment_initiation/payment/token/create&#x60;
-newtype PaymentInitiationPaymentTokenCreateResponse = PaymentInitiationPaymentTokenCreateResponse { unPaymentInitiationPaymentTokenCreateResponse :: (Map.Map Text Value) }
+newtype PaymentInitiationPaymentTokenCreateResponse = PaymentInitiationPaymentTokenCreateResponse { unPaymentInitiationPaymentTokenCreateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

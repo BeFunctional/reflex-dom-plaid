@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ExternalPaymentScheduleRequest ( ExternalPaymentScheduleRequest (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The schedule that the payment will be executed on. If a schedule is provided, the payment is automatically set up as a standing order. If no schedule is specified, the payment will be executed only once.
-newtype ExternalPaymentScheduleRequest = ExternalPaymentScheduleRequest { unExternalPaymentScheduleRequest :: (Map.Map Text Value) }
+newtype ExternalPaymentScheduleRequest = ExternalPaymentScheduleRequest { unExternalPaymentScheduleRequest :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

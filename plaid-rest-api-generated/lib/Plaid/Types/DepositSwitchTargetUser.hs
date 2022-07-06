@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.DepositSwitchTargetUser ( DepositSwitchTargetUser (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The deposit switch target user
-newtype DepositSwitchTargetUser = DepositSwitchTargetUser { unDepositSwitchTargetUser :: (Map.Map Text Value) }
+newtype DepositSwitchTargetUser = DepositSwitchTargetUser { unDepositSwitchTargetUser :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

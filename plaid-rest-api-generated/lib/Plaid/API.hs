@@ -1,6 +1,6 @@
 {-# LANGUAGE DataKinds                  #-}
-{-# LANGUAGE DeriveDataTypeable         #-}
-{-# LANGUAGE DeriveGeneric              #-}
+
+
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
@@ -221,7 +221,7 @@ type ThePlaidAPI
     :<|> "sandbox" :> "item" :> "fire_webhook" :> ReqBody '[JSON] SandboxItemFireWebhookRequest :> Verb 'POST 200 '[JSON] SandboxItemFireWebhookResponse -- 'sandboxItemFireWebhook' route
     :<|> "sandbox" :> "item" :> "reset_login" :> ReqBody '[JSON] SandboxItemResetLoginRequest :> Verb 'POST 200 '[JSON] SandboxItemResetLoginResponse -- 'sandboxItemResetLogin' route
     :<|> "sandbox" :> "item" :> "set_verification_status" :> ReqBody '[JSON] SandboxItemSetVerificationStatusRequest :> Verb 'POST 200 '[JSON] SandboxItemSetVerificationStatusResponse -- 'sandboxItemSetVerificationStatus' route
-    :<|> "sandbox" :> "oauth" :> "select_accounts" :> ReqBody '[JSON] SandboxOauthSelectAccountsRequest :> Verb 'POST 200 '[JSON] ((Map.Map String Value)) -- 'sandboxOauthSelectAccounts' route
+    :<|> "sandbox" :> "oauth" :> "select_accounts" :> ReqBody '[JSON] SandboxOauthSelectAccountsRequest :> Verb 'POST 200 '[JSON] (Map.Map String Value) -- 'sandboxOauthSelectAccounts' route
     :<|> "sandbox" :> "processor_token" :> "create" :> ReqBody '[JSON] SandboxProcessorTokenCreateRequest :> Verb 'POST 200 '[JSON] SandboxProcessorTokenCreateResponse -- 'sandboxProcessorTokenCreate' route
     :<|> "sandbox" :> "public_token" :> "create" :> ReqBody '[JSON] SandboxPublicTokenCreateRequest :> Verb 'POST 200 '[JSON] SandboxPublicTokenCreateResponse -- 'sandboxPublicTokenCreate' route
     :<|> "sandbox" :> "transfer" :> "fire_webhook" :> ReqBody '[JSON] SandboxTransferFireWebhookRequest :> Verb 'POST 200 '[JSON] SandboxTransferFireWebhookResponse -- 'sandboxTransferFireWebhook' route
@@ -282,7 +282,7 @@ type ThePlaidAPI
     :<|> "watchlist_screening" :> "individual" :> "review" :> "list" :> ReqBody '[JSON] ListWatchlistScreeningIndividualReviewsRequest :> Verb 'POST 200 '[JSON] PaginatedIndividualWatchlistScreeningReviewListResponse -- 'watchlistScreeningIndividualReviewsList' route
     :<|> "watchlist_screening" :> "individual" :> "update" :> ReqBody '[JSON] UpdateIndividualScreeningRequest :> Verb 'POST 200 '[JSON] WatchlistScreeningIndividualResponse -- 'watchlistScreeningIndividualUpdate' route
     :<|> "webhook_verification_key" :> "get" :> ReqBody '[JSON] WebhookVerificationKeyGetRequest :> Verb 'POST 200 '[JSON] WebhookVerificationKeyGetResponse -- 'webhookVerificationKeyGet' route
-    :<|> Raw 
+    :<|> Raw
 
 
 -- | Server or client configuration, specifying the host and port to query or serve on.
@@ -357,7 +357,7 @@ data ThePlaidBackend m = ThePlaidBackend
   , incomeVerificationPaystubsGet :: IncomeVerificationPaystubsGetRequest -> m IncomeVerificationPaystubsGetResponse{- ^ `/income/verification/paystubs/get` returns the information collected from the paystubs that were used to verify an end user''s income. It can be called once the status of the verification has been set to `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME: verification_status` webhook. Attempting to call the endpoint before verification has been completed will result in an error.  This endpoint has been deprecated; new integrations should use `/credit/payroll_income/get` instead. -}
   , incomeVerificationPrecheck :: IncomeVerificationPrecheckRequest -> m IncomeVerificationPrecheckResponse{- ^ `/income/verification/precheck` is an optional endpoint that can be called before initializing a Link session for income verification. It evaluates whether a given user is supportable by digital income verification and returns a `precheck_id` that can be provided to `/link/token/create`. If the user is eligible for digital verification, providing the `precheck_id` in this way will generate a Link UI optimized for the end user and their specific employer. If the user cannot be confirmed as eligible, the `precheck_id` can still be provided to `/link/token/create` and the user can still use the income verification flow, but they may be required to manually upload a paystub to verify their income.  While all request fields are optional, providing either `employer` or `transactions_access_tokens` data will increase the chance of receiving a useful result.  This endpoint has been deprecated; new integrations should use `/credit/payroll_income/precheck` instead. -}
   , incomeVerificationRefresh :: IncomeVerificationRefreshRequest -> m IncomeVerificationRefreshResponse{- ^ `/income/verification/refresh` refreshes a given income verification. -}
-  , incomeVerificationTaxformsGet :: (Map.Map String Value) -> m IncomeVerificationTaxformsGetResponse{- ^ `/income/verification/taxforms/get` returns the information collected from forms that were used to verify an end user''s income. It can be called once the status of the verification has been set to `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME: verification_status` webhook. Attempting to call the endpoint before verification has been completed will result in an error.  This endpoint has been deprecated; new integrations should use `/credit/payroll_income/get` instead. -}
+  , incomeVerificationTaxformsGet :: Map.Map String Value -> m IncomeVerificationTaxformsGetResponse{- ^ `/income/verification/taxforms/get` returns the information collected from forms that were used to verify an end user''s income. It can be called once the status of the verification has been set to `VERIFICATION_STATUS_PROCESSING_COMPLETE`, as reported by the `INCOME: verification_status` webhook. Attempting to call the endpoint before verification has been completed will result in an error.  This endpoint has been deprecated; new integrations should use `/credit/payroll_income/get` instead. -}
   , institutionsGet :: InstitutionsGetRequest -> m InstitutionsGetResponse{- ^ Returns a JSON response containing details on all financial institutions currently supported by Plaid. Because Plaid supports thousands of institutions, results are paginated.  If there is no overlap between an institution’s enabled products and a client’s enabled products, then the institution will be filtered out from the response. As a result, the number of institutions returned may not match the count specified in the call. -}
   , institutionsGetById :: InstitutionsGetByIdRequest -> m InstitutionsGetByIdResponse{- ^ Returns a JSON response containing details on a specified financial institution currently supported by Plaid.  Versioning note: API versions 2019-05-29 and earlier allow use of the `public_key` parameter instead of the `client_id` and `secret` to authenticate to this endpoint. The `public_key` has been deprecated; all customers are encouraged to use `client_id` and `secret` instead.  -}
   , institutionsSearch :: InstitutionsSearchRequest -> m InstitutionsSearchResponse{- ^ Returns a JSON response containing details for institutions that match the query parameters, up to a maximum of ten institutions per query.  Versioning note: API versions 2019-05-29 and earlier allow use of the `public_key` parameter instead of the `client_id` and `secret` parameters to authenticate to this endpoint. The `public_key` parameter has since been deprecated; all customers are encouraged to use `client_id` and `secret` instead.  -}
@@ -399,7 +399,7 @@ data ThePlaidBackend m = ThePlaidBackend
   , sandboxItemFireWebhook :: SandboxItemFireWebhookRequest -> m SandboxItemFireWebhookResponse{- ^ The `/sandbox/item/fire_webhook` endpoint is used to test that code correctly handles webhooks. This endpoint can trigger the following webhooks:  `DEFAULT_UPDATE`: Transactions update webhook to be fired for a given Sandbox Item. If the Item does not support Transactions, a `SANDBOX_PRODUCT_NOT_ENABLED` error will result.  `NEW_ACCOUNTS_AVAILABLE`: Webhook to be fired for a given Sandbox Item created with Account Select v2.  `AUTH_DATA_UPDATE`: Webhook to be fired for a given Sandbox Item created with Auth as an enabled product.  Note that this endpoint is provided for developer ease-of-use and is not required for testing webhooks; webhooks will also fire in Sandbox under the same conditions that they would in Production or Development' -}
   , sandboxItemResetLogin :: SandboxItemResetLoginRequest -> m SandboxItemResetLoginResponse{- ^ `/sandbox/item/reset_login/` forces an Item into an `ITEM_LOGIN_REQUIRED` state in order to simulate an Item whose login is no longer valid. This makes it easy to test Link's [update mode](https://plaid.com/docs/link/update-mode) flow in the Sandbox environment.  After calling `/sandbox/item/reset_login`, You can then use Plaid Link update mode to restore the Item to a good state. An `ITEM_LOGIN_REQUIRED` webhook will also be fired after a call to this endpoint, if one is associated with the Item.   In the Sandbox, Items will transition to an `ITEM_LOGIN_REQUIRED` error state automatically after 30 days, even if this endpoint is not called. -}
   , sandboxItemSetVerificationStatus :: SandboxItemSetVerificationStatusRequest -> m SandboxItemSetVerificationStatusResponse{- ^ The `/sandbox/item/set_verification_status` endpoint can be used to change the verification status of an Item in in the Sandbox in order to simulate the Automated Micro-deposit flow.  Note that not all Plaid developer accounts are enabled for micro-deposit based verification by default. Your account must be enabled for this feature in order to test it in Sandbox. To enable this features or check your status, contact your account manager or [submit a product access Support ticket](https://dashboard.plaid.com/support/new/product-and-development/product-troubleshooting/request-product-access).  For more information on testing Automated Micro-deposits in Sandbox, see [Auth full coverage testing](https://plaid.com/docs/auth/coverage/testing#). -}
-  , sandboxOauthSelectAccounts :: SandboxOauthSelectAccountsRequest -> m ((Map.Map String Value)){- ^ Save the selected accounts when connecting to the Platypus Oauth institution -}
+  , sandboxOauthSelectAccounts :: SandboxOauthSelectAccountsRequest -> m (Map.Map String Value){- ^ Save the selected accounts when connecting to the Platypus Oauth institution -}
   , sandboxProcessorTokenCreate :: SandboxProcessorTokenCreateRequest -> m SandboxProcessorTokenCreateResponse{- ^ Use the `/sandbox/processor_token/create` endpoint to create a valid `processor_token` for an arbitrary institution ID and test credentials. The created `processor_token` corresponds to a new Sandbox Item. You can then use this `processor_token` with the `/processor/` API endpoints in Sandbox. You can also use `/sandbox/processor_token/create` with the [`user_custom` test username](https://plaid.com/docs/sandbox/user-custom) to generate a test account with custom data. -}
   , sandboxPublicTokenCreate :: SandboxPublicTokenCreateRequest -> m SandboxPublicTokenCreateResponse{- ^ Use the `/sandbox/public_token/create` endpoint to create a valid `public_token`  for an arbitrary institution ID, initial products, and test credentials. The created `public_token` maps to a new Sandbox Item. You can then call `/item/public_token/exchange` to exchange the `public_token` for an `access_token` and perform all API actions. `/sandbox/public_token/create` can also be used with the [`user_custom` test username](https://plaid.com/docs/sandbox/user-custom) to generate a test account with custom data. `/sandbox/public_token/create` cannot be used with OAuth institutions. -}
   , sandboxTransferFireWebhook :: SandboxTransferFireWebhookRequest -> m SandboxTransferFireWebhookResponse{- ^ Use the `/sandbox/transfer/fire_webhook` endpoint to manually trigger a Transfer webhook in the Sandbox environment. -}
@@ -425,7 +425,7 @@ data ThePlaidBackend m = ThePlaidBackend
   , transferEventSync :: TransferEventSyncRequest -> m TransferEventSyncResponse{- ^ `/transfer/event/sync` allows you to request up to the next 25 transfer events that happened after a specific `event_id`. Use the `/transfer/event/sync` endpoint to guarantee you have seen all transfer events. -}
   , transferGet :: TransferGetRequest -> m TransferGetResponse{- ^ The `/transfer/get` fetches information about the transfer corresponding to the given `transfer_id`. -}
   , transferIntentCreate :: TransferIntentCreateRequest -> m TransferIntentCreateResponse{- ^ Use the `/transfer/intent/create` endpoint to generate a transfer intent object and invoke the Transfer UI. -}
-  , transferIntentGet :: (Map.Map String Value) -> m TransferIntentGetResponse{- ^ Use the `/transfer/intent/get` endpoint to retrieve more information about a transfer intent. -}
+  , transferIntentGet :: Map.Map String Value -> m TransferIntentGetResponse{- ^ Use the `/transfer/intent/get` endpoint to retrieve more information about a transfer intent. -}
   , transferList :: TransferListRequest -> m TransferListResponse{- ^ Use the `/transfer/list` endpoint to see a list of all your transfers and their statuses. Results are paginated; use the `count` and `offset` query parameters to retrieve the desired transfers.  -}
   , transferMigrateAccount :: TransferMigrateAccountRequest -> m TransferMigrateAccountResponse{- ^ As an alternative to adding Items via Link, you can also use the `/transfer/migrate_account` endpoint to migrate known account and routing numbers to Plaid Items.  Note that Items created in this way are not compatible with endpoints for other products, such as `/accounts/balance/get`, and can only be used with Transfer endpoints.  If you require access to other endpoints, create the Item through Link instead.  Access to `/transfer/migrate_account` is not enabled by default; to obtain access, contact your Plaid Account Manager. -}
   , transferRepaymentList :: TransferRepaymentListRequest -> m TransferRepaymentListResponse{- ^ The `/transfer/repayment/list` endpoint fetches repayments matching the given filters. Repayments are returned in reverse-chronological order (most recent first) starting at the given `start_time`. -}
@@ -670,7 +670,7 @@ runThePlaidClientWithManager manager Config{..} cl = do
 callThePlaid
   :: (MonadIO m, MonadError ClientError m)
   => ClientEnv -> ThePlaidClient a -> m a
-callThePlaid env f = do 
+callThePlaid env f = do
   eRes <- liftIO $ runExceptT $ runClient f env
   liftEither eRes
 
@@ -681,7 +681,7 @@ requestMiddlewareId a = a
 runThePlaidServer
   :: (MonadIO m, MonadThrow m)
   => Config -> ThePlaidBackend (ExceptT ServerError IO) -> m ()
-runThePlaidServer config backend = runThePlaidMiddlewareServer config requestMiddlewareId backend
+runThePlaidServer config = runThePlaidMiddlewareServer config requestMiddlewareId
 
 -- | Run the ThePlaid server at the provided host and port.
 runThePlaidMiddlewareServer
@@ -701,7 +701,7 @@ serverWaiApplicationThePlaid :: ThePlaidBackend (ExceptT ServerError IO) -> Wai.
 serverWaiApplicationThePlaid backend = serve (Proxy :: Proxy ThePlaidAPI) (serverFromBackend backend)
   where
     serverFromBackend ThePlaidBackend{..} =
-      (coerce accountsBalanceGet :<|>
+      coerce accountsBalanceGet :<|>
        coerce accountsGet :<|>
        coerce applicationGet :<|>
        coerce assetReportAuditCopyCreate :<|>
@@ -859,4 +859,4 @@ serverWaiApplicationThePlaid backend = serve (Proxy :: Proxy ThePlaidAPI) (serve
        coerce watchlistScreeningIndividualReviewsList :<|>
        coerce watchlistScreeningIndividualUpdate :<|>
        coerce webhookVerificationKeyGet :<|>
-       serveDirectoryFileServer "static")
+       serveDirectoryFileServer "static"

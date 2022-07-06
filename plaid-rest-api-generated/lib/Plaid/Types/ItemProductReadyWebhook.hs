@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ItemProductReadyWebhook ( ItemProductReadyWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired once Plaid calculates income from an Item.
-newtype ItemProductReadyWebhook = ItemProductReadyWebhook { unItemProductReadyWebhook :: (Map.Map Text Value) }
+newtype ItemProductReadyWebhook = ItemProductReadyWebhook { unItemProductReadyWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ItemErrorWebhook ( ItemErrorWebhook (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Fired when an error is encountered with an Item. The error can be resolved by having the user go through Link’s update mode.
-newtype ItemErrorWebhook = ItemErrorWebhook { unItemErrorWebhook :: (Map.Map Text Value) }
+newtype ItemErrorWebhook = ItemErrorWebhook { unItemErrorWebhook :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

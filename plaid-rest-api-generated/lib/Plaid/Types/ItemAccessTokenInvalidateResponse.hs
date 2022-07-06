@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ItemAccessTokenInvalidateResponse ( ItemAccessTokenInvalidateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | ItemAccessTokenInvalidateResponse defines the response schema for &#x60;/item/access_token/invalidate&#x60;
-newtype ItemAccessTokenInvalidateResponse = ItemAccessTokenInvalidateResponse { unItemAccessTokenInvalidateResponse :: (Map.Map Text Value) }
+newtype ItemAccessTokenInvalidateResponse = ItemAccessTokenInvalidateResponse { unItemAccessTokenInvalidateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

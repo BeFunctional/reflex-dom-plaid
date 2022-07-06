@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransactionsEnhanceGetResponse ( TransactionsEnhanceGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | TransactionsEnhanceGetResponse defines the response schema for &#x60;/transactions/enhance&#x60;.
-newtype TransactionsEnhanceGetResponse = TransactionsEnhanceGetResponse { unTransactionsEnhanceGetResponse :: (Map.Map Text Value) }
+newtype TransactionsEnhanceGetResponse = TransactionsEnhanceGetResponse { unTransactionsEnhanceGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

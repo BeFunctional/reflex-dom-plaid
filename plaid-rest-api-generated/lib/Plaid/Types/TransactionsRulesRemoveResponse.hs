@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransactionsRulesRemoveResponse ( TransactionsRulesRemoveResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | TransactionsRulesRemoveResponse defines the response schema for &#x60;/beta/transactions/rules/v1/remove&#x60;
-newtype TransactionsRulesRemoveResponse = TransactionsRulesRemoveResponse { unTransactionsRulesRemoveResponse :: (Map.Map Text Value) }
+newtype TransactionsRulesRemoveResponse = TransactionsRulesRemoveResponse { unTransactionsRulesRemoveResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

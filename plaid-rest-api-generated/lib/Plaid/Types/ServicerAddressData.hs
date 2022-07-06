@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ServicerAddressData ( ServicerAddressData (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The address of the student loan servicer. This is generally the remittance address to which payments should be sent.
-newtype ServicerAddressData = ServicerAddressData { unServicerAddressData :: (Map.Map Text Value) }
+newtype ServicerAddressData = ServicerAddressData { unServicerAddressData :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

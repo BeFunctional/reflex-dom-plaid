@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.LinkTokenGetMetadataResponse ( LinkTokenGetMetadataResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | An object specifying the arguments originally provided to the &#x60;/link/token/create&#x60; call.
-newtype LinkTokenGetMetadataResponse = LinkTokenGetMetadataResponse { unLinkTokenGetMetadataResponse :: (Map.Map Text Value) }
+newtype LinkTokenGetMetadataResponse = LinkTokenGetMetadataResponse { unLinkTokenGetMetadataResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

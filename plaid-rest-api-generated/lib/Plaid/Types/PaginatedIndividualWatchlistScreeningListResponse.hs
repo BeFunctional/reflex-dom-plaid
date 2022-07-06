@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaginatedIndividualWatchlistScreeningListResponse ( PaginatedIndividualWatchlistScreeningListResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Paginated list of individual watchlist screenings.
-newtype PaginatedIndividualWatchlistScreeningListResponse = PaginatedIndividualWatchlistScreeningListResponse { unPaginatedIndividualWatchlistScreeningListResponse :: (Map.Map Text Value) }
+newtype PaginatedIndividualWatchlistScreeningListResponse = PaginatedIndividualWatchlistScreeningListResponse { unPaginatedIndividualWatchlistScreeningListResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

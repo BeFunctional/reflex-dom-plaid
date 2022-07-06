@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentConsentPeriodicAlignment ( PaymentConsentPeriodicAlignment (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Where the payment consent period should start.  &#x60;CALENDAR&#x60;: line up with a calendar.  &#x60;CONSENT&#x60;: on the date of consent creation.
 data PaymentConsentPeriodicAlignment = PaymentConsentPeriodicAlignment
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON PaymentConsentPeriodicAlignment where

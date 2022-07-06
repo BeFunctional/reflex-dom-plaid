@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.EntityWatchlistCode ( EntityWatchlistCode (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Shorthand identifier for a specific screening list for entities.
 data EntityWatchlistCode = EntityWatchlistCode
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON EntityWatchlistCode where

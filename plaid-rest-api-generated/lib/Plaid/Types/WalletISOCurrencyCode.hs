@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.WalletISOCurrencyCode ( WalletISOCurrencyCode (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | An ISO-4217 currency code, used with e-wallets and transactions. Currently, only &#x60;\&quot;GBP\&quot;&#x60; is supported.
 data WalletISOCurrencyCode = WalletISOCurrencyCode
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON WalletISOCurrencyCode where

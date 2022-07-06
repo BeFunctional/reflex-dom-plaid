@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditBankIncomeErrorType ( CreditBankIncomeErrorType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | A broad categorization of the error. Safe for programmatic use.
 data CreditBankIncomeErrorType = CreditBankIncomeErrorType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON CreditBankIncomeErrorType where

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditPayrollIncomePrecheckResponse ( CreditPayrollIncomePrecheckResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Defines the response schema for &#x60;/credit/payroll_income/precheck&#x60;.
-newtype CreditPayrollIncomePrecheckResponse = CreditPayrollIncomePrecheckResponse { unCreditPayrollIncomePrecheckResponse :: (Map.Map Text Value) }
+newtype CreditPayrollIncomePrecheckResponse = CreditPayrollIncomePrecheckResponse { unCreditPayrollIncomePrecheckResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

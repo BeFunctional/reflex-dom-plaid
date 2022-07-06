@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.EntityWatchlistScreeningReviewResponse ( EntityWatchlistScreeningReviewResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | A review submitted by a team member for an entity watchlist screening. A review can be either a comment on the current screening state, actions taken against hits attached to the watchlist screening, or both.
-newtype EntityWatchlistScreeningReviewResponse = EntityWatchlistScreeningReviewResponse { unEntityWatchlistScreeningReviewResponse :: (Map.Map Text Value) }
+newtype EntityWatchlistScreeningReviewResponse = EntityWatchlistScreeningReviewResponse { unEntityWatchlistScreeningReviewResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

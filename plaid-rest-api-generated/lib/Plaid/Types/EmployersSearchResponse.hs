@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.EmployersSearchResponse ( EmployersSearchResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | EmployersSearchResponse defines the response schema for &#x60;/employers/search&#x60;.
-newtype EmployersSearchResponse = EmployersSearchResponse { unEmployersSearchResponse :: (Map.Map Text Value) }
+newtype EmployersSearchResponse = EmployersSearchResponse { unEmployersSearchResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IncomeVerificationSourceType ( IncomeVerificationSourceType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The types of source income data that users should be able to share
 data IncomeVerificationSourceType = IncomeVerificationSourceType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON IncomeVerificationSourceType where

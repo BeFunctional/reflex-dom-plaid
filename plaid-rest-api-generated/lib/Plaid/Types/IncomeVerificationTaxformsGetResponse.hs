@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IncomeVerificationTaxformsGetResponse ( IncomeVerificationTaxformsGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | IncomeVerificationTaxformsGetResponse defines the response schema for &#x60;/income/verification/taxforms/get&#x60;
-newtype IncomeVerificationTaxformsGetResponse = IncomeVerificationTaxformsGetResponse { unIncomeVerificationTaxformsGetResponse :: (Map.Map Text Value) }
+newtype IncomeVerificationTaxformsGetResponse = IncomeVerificationTaxformsGetResponse { unIncomeVerificationTaxformsGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

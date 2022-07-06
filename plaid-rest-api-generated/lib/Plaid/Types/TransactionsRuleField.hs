@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransactionsRuleField ( TransactionsRuleField (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Transaction field for which the rule is defined.
 data TransactionsRuleField = TransactionsRuleField
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON TransactionsRuleField where

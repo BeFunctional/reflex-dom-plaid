@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.WatchlistScreeningStatus ( WatchlistScreeningStatus (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | A status enum indicating whether a screening is still pending review, has been rejected, or has been cleared.
 data WatchlistScreeningStatus = WatchlistScreeningStatus
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON WatchlistScreeningStatus where

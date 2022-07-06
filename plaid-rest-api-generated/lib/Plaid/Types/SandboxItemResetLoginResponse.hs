@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.SandboxItemResetLoginResponse ( SandboxItemResetLoginResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | SandboxItemResetLoginResponse defines the response schema for &#x60;/sandbox/item/reset_login&#x60;
-newtype SandboxItemResetLoginResponse = SandboxItemResetLoginResponse { unSandboxItemResetLoginResponse :: (Map.Map Text Value) }
+newtype SandboxItemResetLoginResponse = SandboxItemResetLoginResponse { unSandboxItemResetLoginResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

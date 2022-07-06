@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.InvestmentTransactionSubtype ( InvestmentTransactionSubtype (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | For descriptions of possible transaction types and subtypes, see the [Investment transaction types schema](https://plaid.com/docs/api/accounts/#investment-transaction-types-schema).
 data InvestmentTransactionSubtype = InvestmentTransactionSubtype
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON InvestmentTransactionSubtype where

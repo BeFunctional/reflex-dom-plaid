@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferRepaymentReturn ( TransferRepaymentReturn (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Represents a return on a Guaranteed ACH transfer that is included in the specified repayment.
-newtype TransferRepaymentReturn = TransferRepaymentReturn { unTransferRepaymentReturn :: (Map.Map Text Value) }
+newtype TransferRepaymentReturn = TransferRepaymentReturn { unTransferRepaymentReturn :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.SignalPrepareResponse ( SignalPrepareResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | SignalPrepareResponse defines the response schema for &#x60;/signal/prepare&#x60;
-newtype SignalPrepareResponse = SignalPrepareResponse { unSignalPrepareResponse :: (Map.Map Text Value) }
+newtype SignalPrepareResponse = SignalPrepareResponse { unSignalPrepareResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

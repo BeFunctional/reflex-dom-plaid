@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.POBoxStatus ( POBoxStatus (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Field describing whether the associated address is a post office box. Will be &#x60;yes&#x60; when a P.O. box is detected, &#x60;no&#x60; when Plaid confirmed the address is not a P.O. box, and &#x60;no_data&#x60; when Plaid was not able to determine if the address is a P.O. box.
 data POBoxStatus = POBoxStatus
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON POBoxStatus where

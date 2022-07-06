@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.InvestmentAccountSubtype ( InvestmentAccountSubtype (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Valid account subtypes for investment accounts. For a list containing descriptions of each subtype, see [Account schemas](https://plaid.com/docs/api/accounts/#StandaloneAccountType-investment).
 data InvestmentAccountSubtype = InvestmentAccountSubtype
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON InvestmentAccountSubtype where

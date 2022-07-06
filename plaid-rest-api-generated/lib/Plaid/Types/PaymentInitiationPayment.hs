@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentInitiationPayment ( PaymentInitiationPayment (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | PaymentInitiationPayment defines a payment initiation payment
-newtype PaymentInitiationPayment = PaymentInitiationPayment { unPaymentInitiationPayment :: (Map.Map Text Value) }
+newtype PaymentInitiationPayment = PaymentInitiationPayment { unPaymentInitiationPayment :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

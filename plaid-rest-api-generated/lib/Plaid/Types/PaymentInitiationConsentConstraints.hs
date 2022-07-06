@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentInitiationConsentConstraints ( PaymentInitiationConsentConstraints (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Limitations that will be applied to payments initiated using the payment consent.
-newtype PaymentInitiationConsentConstraints = PaymentInitiationConsentConstraints { unPaymentInitiationConsentConstraints :: (Map.Map Text Value) }
+newtype PaymentInitiationConsentConstraints = PaymentInitiationConsentConstraints { unPaymentInitiationConsentConstraints :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransactionsSyncResponse ( TransactionsSyncResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | TransactionsSyncResponse defines the response schema for &#x60;/transactions/sync&#x60;
-newtype TransactionsSyncResponse = TransactionsSyncResponse { unTransactionsSyncResponse :: (Map.Map Text Value) }
+newtype TransactionsSyncResponse = TransactionsSyncResponse { unTransactionsSyncResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditBankIncomeWarningType ( CreditBankIncomeWarningType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The warning type which will always be &#x60;BANK_INCOME_WARNING&#x60;.
 data CreditBankIncomeWarningType = CreditBankIncomeWarningType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON CreditBankIncomeWarningType where

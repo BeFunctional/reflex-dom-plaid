@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditBankIncomeWarningCode ( CreditBankIncomeWarningCode (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The warning code identifies a specific kind of warning. &#x60;IDENTITY_UNAVAILABLE&#x60;: Unable to extract identity for the Item &#x60;TRANSACTIONS_UNAVAILABLE&#x60;: Unable to extract transactions for the Item &#x60;ITEM_UNAPPROVED&#x60;: User did not grant permission to share income data for the Item &#x60;REPORT_DELETED&#x60;: Report deleted due to customer or consumer request
 data CreditBankIncomeWarningCode = CreditBankIncomeWarningCode
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON CreditBankIncomeWarningCode where

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PayStubDistributionBreakdown ( PayStubDistributionBreakdown (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Information about the accounts that the payment was distributed to.
-newtype PayStubDistributionBreakdown = PayStubDistributionBreakdown { unPayStubDistributionBreakdown :: (Map.Map Text Value) }
+newtype PayStubDistributionBreakdown = PayStubDistributionBreakdown { unPayStubDistributionBreakdown :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

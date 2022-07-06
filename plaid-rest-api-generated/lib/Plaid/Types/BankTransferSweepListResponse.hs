@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.BankTransferSweepListResponse ( BankTransferSweepListResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | BankTransferSweepListResponse defines the response schema for &#x60;/bank_transfer/sweep/list&#x60;
-newtype BankTransferSweepListResponse = BankTransferSweepListResponse { unBankTransferSweepListResponse :: (Map.Map Text Value) }
+newtype BankTransferSweepListResponse = BankTransferSweepListResponse { unBankTransferSweepListResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

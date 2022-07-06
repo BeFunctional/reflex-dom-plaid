@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.TransferIntentCreateMode ( TransferIntentCreateMode (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The direction of the flow of transfer funds.  - &#x60;PAYMENT&#x60; – Transfers funds from an end user&#39;s account to your business account.  - &#x60;DISBURSEMENT&#x60; – Transfers funds from your business account to an end user&#39;s account.
 data TransferIntentCreateMode = TransferIntentCreateMode
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON TransferIntentCreateMode where

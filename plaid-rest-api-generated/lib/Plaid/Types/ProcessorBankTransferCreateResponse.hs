@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ProcessorBankTransferCreateResponse ( ProcessorBankTransferCreateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Defines the response schema for &#x60;/processor/bank_transfer/create&#x60;
-newtype ProcessorBankTransferCreateResponse = ProcessorBankTransferCreateResponse { unProcessorBankTransferCreateResponse :: (Map.Map Text Value) }
+newtype ProcessorBankTransferCreateResponse = ProcessorBankTransferCreateResponse { unProcessorBankTransferCreateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

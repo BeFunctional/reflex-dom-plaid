@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IncomeVerificationPayrollFlowType ( IncomeVerificationPayrollFlowType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Flow types to retrieve payroll income data
 data IncomeVerificationPayrollFlowType = IncomeVerificationPayrollFlowType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON IncomeVerificationPayrollFlowType where

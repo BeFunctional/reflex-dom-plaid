@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.IncomeVerificationCreateResponse ( IncomeVerificationCreateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | IncomeVerificationCreateResponse defines the response schema for &#x60;/income/verification/create&#x60;.
-newtype IncomeVerificationCreateResponse = IncomeVerificationCreateResponse { unIncomeVerificationCreateResponse :: (Map.Map Text Value) }
+newtype IncomeVerificationCreateResponse = IncomeVerificationCreateResponse { unIncomeVerificationCreateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

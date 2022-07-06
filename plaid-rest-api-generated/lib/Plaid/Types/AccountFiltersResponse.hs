@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.AccountFiltersResponse ( AccountFiltersResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The &#x60;account_filters&#x60; specified in the original call to &#x60;/link/token/create&#x60;. 
-newtype AccountFiltersResponse = AccountFiltersResponse { unAccountFiltersResponse :: (Map.Map Text Value) }
+newtype AccountFiltersResponse = AccountFiltersResponse { unAccountFiltersResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

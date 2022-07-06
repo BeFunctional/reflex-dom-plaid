@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.AssetReportRelayRemoveResponse ( AssetReportRelayRemoveResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | AssetReportRelayRemoveResponse defines the response schema for &#x60;/asset_report/relay/remove&#x60;
-newtype AssetReportRelayRemoveResponse = AssetReportRelayRemoveResponse { unAssetReportRelayRemoveResponse :: (Map.Map Text Value) }
+newtype AssetReportRelayRemoveResponse = AssetReportRelayRemoveResponse { unAssetReportRelayRemoveResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CategoriesGetResponse ( CategoriesGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | CategoriesGetResponse defines the response schema for &#x60;/categories/get&#x60;
-newtype CategoriesGetResponse = CategoriesGetResponse { unCategoriesGetResponse :: (Map.Map Text Value) }
+newtype CategoriesGetResponse = CategoriesGetResponse { unCategoriesGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditBankIncomePayFrequency ( CreditBankIncomePayFrequency (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The income pay frequency.
 data CreditBankIncomePayFrequency = CreditBankIncomePayFrequency
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON CreditBankIncomePayFrequency where

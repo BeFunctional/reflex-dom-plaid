@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditEmploymentVerification ( CreditEmploymentVerification (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The object containing proof of employment data for an individual.
-newtype CreditEmploymentVerification = CreditEmploymentVerification { unCreditEmploymentVerification :: (Map.Map Text Value) }
+newtype CreditEmploymentVerification = CreditEmploymentVerification { unCreditEmploymentVerification :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

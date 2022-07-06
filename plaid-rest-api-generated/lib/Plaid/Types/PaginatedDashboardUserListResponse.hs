@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaginatedDashboardUserListResponse ( PaginatedDashboardUserListResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Paginated list of dashboard users
-newtype PaginatedDashboardUserListResponse = PaginatedDashboardUserListResponse { unPaginatedDashboardUserListResponse :: (Map.Map Text Value) }
+newtype PaginatedDashboardUserListResponse = PaginatedDashboardUserListResponse { unPaginatedDashboardUserListResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

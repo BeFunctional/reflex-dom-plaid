@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.StandaloneCurrencyCodeList ( StandaloneCurrencyCodeList (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | The following currency codes are supported by Plaid.
-newtype StandaloneCurrencyCodeList = StandaloneCurrencyCodeList { unStandaloneCurrencyCodeList :: (Map.Map Text Value) }
+newtype StandaloneCurrencyCodeList = StandaloneCurrencyCodeList { unStandaloneCurrencyCodeList :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

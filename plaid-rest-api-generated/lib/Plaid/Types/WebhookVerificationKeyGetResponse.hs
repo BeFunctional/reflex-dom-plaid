@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.WebhookVerificationKeyGetResponse ( WebhookVerificationKeyGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | WebhookVerificationKeyGetResponse defines the response schema for &#x60;/webhook_verification_key/get&#x60;
-newtype WebhookVerificationKeyGetResponse = WebhookVerificationKeyGetResponse { unWebhookVerificationKeyGetResponse :: (Map.Map Text Value) }
+newtype WebhookVerificationKeyGetResponse = WebhookVerificationKeyGetResponse { unWebhookVerificationKeyGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

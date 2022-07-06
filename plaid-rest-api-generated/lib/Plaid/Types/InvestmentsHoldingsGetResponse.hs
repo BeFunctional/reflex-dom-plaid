@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.InvestmentsHoldingsGetResponse ( InvestmentsHoldingsGetResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | InvestmentsHoldingsGetResponse defines the response schema for &#x60;/investments/holdings/get&#x60;
-newtype InvestmentsHoldingsGetResponse = InvestmentsHoldingsGetResponse { unInvestmentsHoldingsGetResponse :: (Map.Map Text Value) }
+newtype InvestmentsHoldingsGetResponse = InvestmentsHoldingsGetResponse { unInvestmentsHoldingsGetResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

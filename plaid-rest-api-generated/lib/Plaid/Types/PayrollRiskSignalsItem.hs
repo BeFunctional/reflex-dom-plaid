@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PayrollRiskSignalsItem ( PayrollRiskSignalsItem (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Object containing fraud risk data pertaining to the item linked as part of the verification
-newtype PayrollRiskSignalsItem = PayrollRiskSignalsItem { unPayrollRiskSignalsItem :: (Map.Map Text Value) }
+newtype PayrollRiskSignalsItem = PayrollRiskSignalsItem { unPayrollRiskSignalsItem :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

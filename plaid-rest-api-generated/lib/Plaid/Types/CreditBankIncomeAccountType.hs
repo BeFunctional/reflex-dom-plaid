@@ -1,9 +1,9 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
-{-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditBankIncomeAccountType ( CreditBankIncomeAccountType (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | The account type. This will always be &#x60;depository&#x60;.
 data CreditBankIncomeAccountType = CreditBankIncomeAccountType
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON CreditBankIncomeAccountType where

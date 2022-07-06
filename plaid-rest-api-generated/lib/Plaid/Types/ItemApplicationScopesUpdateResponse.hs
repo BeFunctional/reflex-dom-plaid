@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.ItemApplicationScopesUpdateResponse ( ItemApplicationScopesUpdateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | ItemApplicationScopesUpdateResponse defines the response schema for &#x60;/item/application/scopes/update&#x60;
-newtype ItemApplicationScopesUpdateResponse = ItemApplicationScopesUpdateResponse { unItemApplicationScopesUpdateResponse :: (Map.Map Text Value) }
+newtype ItemApplicationScopesUpdateResponse = ItemApplicationScopesUpdateResponse { unItemApplicationScopesUpdateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

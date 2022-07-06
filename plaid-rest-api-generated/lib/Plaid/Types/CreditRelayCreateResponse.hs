@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.CreditRelayCreateResponse ( CreditRelayCreateResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | CreditRelayCreateResponse defines the response schema for &#x60;/credit/relay/create&#x60;
-newtype CreditRelayCreateResponse = CreditRelayCreateResponse { unCreditRelayCreateResponse :: (Map.Map Text Value) }
+newtype CreditRelayCreateResponse = CreditRelayCreateResponse { unCreditRelayCreateResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

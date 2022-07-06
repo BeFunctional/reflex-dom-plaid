@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.PaymentInitiationPaymentReverseResponse ( PaymentInitiationPaymentReverseResponse (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | PaymentInitiationPaymentReverseResponse defines the response schema for &#x60;/payment_initation/payment/reverse&#x60;
-newtype PaymentInitiationPaymentReverseResponse = PaymentInitiationPaymentReverseResponse { unPaymentInitiationPaymentReverseResponse :: (Map.Map Text Value) }
+newtype PaymentInitiationPaymentReverseResponse = PaymentInitiationPaymentReverseResponse { unPaymentInitiationPaymentReverseResponse :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

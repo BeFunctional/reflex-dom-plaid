@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.W2StateAndLocalWages ( W2StateAndLocalWages (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | W2 state and local wages
-newtype W2StateAndLocalWages = W2StateAndLocalWages { unW2StateAndLocalWages :: (Map.Map Text Value) }
+newtype W2StateAndLocalWages = W2StateAndLocalWages { unW2StateAndLocalWages :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

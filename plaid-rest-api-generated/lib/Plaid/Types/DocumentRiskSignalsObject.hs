@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.DocumentRiskSignalsObject ( DocumentRiskSignalsObject (..)  ) where
@@ -28,7 +28,7 @@ import Data.Function ((&))
 import Plaid.Types.Common
 
 -- | Object containing fraud risk data for a set of income documents
-newtype DocumentRiskSignalsObject = DocumentRiskSignalsObject { unDocumentRiskSignalsObject :: (Map.Map Text Value) }
+newtype DocumentRiskSignalsObject = DocumentRiskSignalsObject { unDocumentRiskSignalsObject :: Map.Map Text Value }
   deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
 
 

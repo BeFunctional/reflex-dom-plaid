@@ -3,7 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DerivingStrategies         #-}
 {-# LANGUAGE DeriveAnyClass             #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
 module Plaid.Types.LoanAccountSubtype ( LoanAccountSubtype (..)  ) where
@@ -29,7 +29,7 @@ import Plaid.Types.Common
 
 -- | Valid account subtypes for loan accounts. For a list containing descriptions of each subtype, see [Account schemas](https://plaid.com/docs/api/accounts/#StandaloneAccountType-loan).
 data LoanAccountSubtype = LoanAccountSubtype
-  { 
+  {
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON LoanAccountSubtype where

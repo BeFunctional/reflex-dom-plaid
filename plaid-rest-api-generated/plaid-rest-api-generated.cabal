@@ -647,7 +647,7 @@ library
                      , Plaid.Types.SignalDecisionReportRequest
                      , Plaid.Types.SignalDecisionReportResponse
                      , Plaid.Types.SignalDevice
-
+                     , Plaid.Types.SignalEvaluateCoreAttributes
                      , Plaid.Types.SignalEvaluateRequest
                      , Plaid.Types.SignalEvaluateResponse
                      , Plaid.Types.SignalPersonName

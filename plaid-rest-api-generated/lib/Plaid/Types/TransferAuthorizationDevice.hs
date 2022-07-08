@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Information about the device being used to initiate the authorization.
 newtype TransferAuthorizationDevice = TransferAuthorizationDevice { unTransferAuthorizationDevice :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

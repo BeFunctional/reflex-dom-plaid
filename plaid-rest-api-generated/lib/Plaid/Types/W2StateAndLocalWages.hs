@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | W2 state and local wages
 newtype W2StateAndLocalWages = W2StateAndLocalWages { unW2StateAndLocalWages :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

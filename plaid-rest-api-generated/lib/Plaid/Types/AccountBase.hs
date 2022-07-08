@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A single account at a financial institution.
 newtype AccountBase = AccountBase { unAccountBase :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

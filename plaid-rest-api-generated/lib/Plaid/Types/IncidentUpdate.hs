@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An update on the health incident
 newtype IncidentUpdate = IncidentUpdate { unIncidentUpdate :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

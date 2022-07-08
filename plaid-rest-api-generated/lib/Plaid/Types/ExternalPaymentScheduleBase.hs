@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The schedule that the payment will be executed on. If a schedule is provided, the payment is automatically set up as a standing order. If no schedule is specified, the payment will be executed only once.
 newtype ExternalPaymentScheduleBase = ExternalPaymentScheduleBase { unExternalPaymentScheduleBase :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

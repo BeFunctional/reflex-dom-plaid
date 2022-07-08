@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Limitations that will be applied to payments initiated using the payment consent.
 newtype PaymentInitiationConsentConstraints = PaymentInitiationConsentConstraints { unPaymentInitiationConsentConstraints :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

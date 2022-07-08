@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | IncomeVerificationTaxformsGetResponse defines the response schema for &#x60;/income/verification/taxforms/get&#x60;
 newtype IncomeVerificationTaxformsGetResponse = IncomeVerificationTaxformsGetResponse { unIncomeVerificationTaxformsGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

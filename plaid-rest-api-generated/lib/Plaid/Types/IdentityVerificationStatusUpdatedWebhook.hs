@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when the status of an identity verification has been updated, which can be triggered via the dashboard or the API.
 newtype IdentityVerificationStatusUpdatedWebhook = IdentityVerificationStatusUpdatedWebhook { unIdentityVerificationStatusUpdatedWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

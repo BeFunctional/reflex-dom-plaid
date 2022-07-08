@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object representing the deduction line items for the pay period
 newtype DeductionsBreakdown = DeductionsBreakdown { unDeductionsBreakdown :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

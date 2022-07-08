@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Information about the employer on the pay stub.
 newtype CreditPayStubEmployer = CreditPayStubEmployer { unCreditPayStubEmployer :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The rationale for Plaid&#39;s decision regarding a proposed transfer. It is always set for &#x60;declined&#x60; decisions, and may or may not be null for &#x60;approved&#x60; decisions.
 newtype TransferAuthorizationDecisionRationale = TransferAuthorizationDecisionRationale { unTransferAuthorizationDecisionRationale :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

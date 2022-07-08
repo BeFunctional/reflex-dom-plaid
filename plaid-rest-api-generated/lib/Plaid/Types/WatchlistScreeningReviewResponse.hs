@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A review submitted by a team member for an individual watchlist screening. A review can be either a comment on the current screening state, actions taken against hits attached to the watchlist screening, or both.
 newtype WatchlistScreeningReviewResponse = WatchlistScreeningReviewResponse { unWatchlistScreeningReviewResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

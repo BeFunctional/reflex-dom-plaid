@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Life span for the payment consent. After the &#x60;to&#x60; date the payment consent expires and can no longer be used for payment initiation.
 newtype PaymentConsentValidDateTime = PaymentConsentValidDateTime { unPaymentConsentValidDateTime :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

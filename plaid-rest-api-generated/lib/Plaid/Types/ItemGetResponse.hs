@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ItemGetResponse defines the response schema for &#x60;/item/get&#x60; and &#x60;/item/webhook/update&#x60;
 newtype ItemGetResponse = ItemGetResponse { unItemGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

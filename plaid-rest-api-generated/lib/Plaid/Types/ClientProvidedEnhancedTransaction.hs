@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A client-provided transaction that Plaid has enhanced.
 newtype ClientProvidedEnhancedTransaction = ClientProvidedEnhancedTransaction { unClientProvidedEnhancedTransaction :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

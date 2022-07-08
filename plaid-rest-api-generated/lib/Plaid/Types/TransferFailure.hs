@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The failure reason if the event type for a transfer is &#x60;\&quot;failed\&quot;&#x60; or &#x60;\&quot;returned\&quot;&#x60;. Null value otherwise.
 newtype TransferFailure = TransferFailure { unTransferFailure :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

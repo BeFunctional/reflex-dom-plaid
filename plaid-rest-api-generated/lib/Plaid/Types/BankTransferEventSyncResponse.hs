@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Defines the response schema for &#x60;/bank_transfer/event/sync&#x60;
 newtype BankTransferEventSyncResponse = BankTransferEventSyncResponse { unBankTransferEventSyncResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

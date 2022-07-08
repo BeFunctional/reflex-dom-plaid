@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when transaction(s) for an Item are deleted. The deleted transaction IDs are included in the webhook payload. Plaid will typically check for deleted transaction data several times a day.
 newtype TransactionsRemovedWebhook = TransactionsRemovedWebhook { unTransactionsRemovedWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Metadata specifically related to valid Payment Initiation standing order configurations for the institution.
 newtype PaymentInitiationStandingOrderMetadata = PaymentInitiationStandingOrderMetadata { unPaymentInitiationStandingOrderMetadata :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

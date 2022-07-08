@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when an error is encountered with an Item. The error can be resolved by having the user go through Link’s update mode.
 newtype ItemErrorWebhook = ItemErrorWebhook { unItemErrorWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

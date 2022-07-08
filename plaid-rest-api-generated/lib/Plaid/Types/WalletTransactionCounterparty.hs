@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object representing the e-wallet transaction&#39;s counterparty
 newtype WalletTransactionCounterparty = WalletTransactionCounterparty { unWalletTransactionCounterparty :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

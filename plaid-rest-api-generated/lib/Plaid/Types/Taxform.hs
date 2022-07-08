@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Data about an official document used to report the user&#39;s income to the IRS.
 newtype Taxform = Taxform { unTaxform :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

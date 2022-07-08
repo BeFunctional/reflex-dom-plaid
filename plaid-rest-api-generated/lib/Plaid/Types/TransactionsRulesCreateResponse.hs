@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | TransactionsRulesCreateResponse defines the response schema for &#x60;/beta/transactions/rules/v1/create&#x60;
 newtype TransactionsRulesCreateResponse = TransactionsRulesCreateResponse { unTransactionsRulesCreateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

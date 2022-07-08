@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when new transfer events are available. Receiving this webhook indicates you should fetch the new events from &#x60;/transfer/event/sync&#x60;.
 newtype TransferEventsUpdateWebhook = TransferEventsUpdateWebhook { unTransferEventsUpdateWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

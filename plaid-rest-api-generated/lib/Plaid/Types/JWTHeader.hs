@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A JWT Header, used for webhook validation
 newtype JWTHeader = JWTHeader { unJWTHeader :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

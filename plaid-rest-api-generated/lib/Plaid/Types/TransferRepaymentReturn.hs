@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Represents a return on a Guaranteed ACH transfer that is included in the specified repayment.
 newtype TransferRepaymentReturn = TransferRepaymentReturn { unTransferRepaymentReturn :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

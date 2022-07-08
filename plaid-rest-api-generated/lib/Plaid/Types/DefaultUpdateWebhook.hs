@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when new transaction data is available for an Item. Plaid will typically check for new transaction data several times a day. 
 newtype DefaultUpdateWebhook = DefaultUpdateWebhook { unDefaultUpdateWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

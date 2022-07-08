@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | AssetReportAuditCopyRemoveResponse defines the response schema for &#x60;/asset_report/audit_copy/remove&#x60;
 newtype AssetReportAuditCopyRemoveResponse = AssetReportAuditCopyRemoveResponse { unAssetReportAuditCopyRemoveResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

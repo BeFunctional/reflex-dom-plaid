@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when new or updated holdings have been detected on an investment account. The webhook typically fires once per day, after market close, in response to any newly added holdings or price changes to existing holdings.
 newtype HoldingsDefaultUpdateWebhook = HoldingsDefaultUpdateWebhook { unHoldingsDefaultUpdateWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

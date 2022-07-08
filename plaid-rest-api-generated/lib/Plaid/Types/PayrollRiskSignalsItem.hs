@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Object containing fraud risk data pertaining to the item linked as part of the verification
 newtype PayrollRiskSignalsItem = PayrollRiskSignalsItem { unPayrollRiskSignalsItem :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

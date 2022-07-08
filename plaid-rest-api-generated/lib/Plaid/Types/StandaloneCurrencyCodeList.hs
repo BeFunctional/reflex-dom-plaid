@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The following currency codes are supported by Plaid.
 newtype StandaloneCurrencyCodeList = StandaloneCurrencyCodeList { unStandaloneCurrencyCodeList :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

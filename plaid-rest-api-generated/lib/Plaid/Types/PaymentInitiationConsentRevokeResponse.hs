@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | PaymentInitiationConsentRevokeResponse defines the response schema for &#x60;/payment_initation/consent/revoke&#x60;
 newtype PaymentInitiationConsentRevokeResponse = PaymentInitiationConsentRevokeResponse { unPaymentInitiationConsentRevokeResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

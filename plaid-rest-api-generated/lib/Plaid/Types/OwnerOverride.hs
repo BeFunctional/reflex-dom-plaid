@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Data about the owner or owners of an account. Any fields not specified will be filled in with default Sandbox information.
 newtype OwnerOverride = OwnerOverride { unOwnerOverride :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

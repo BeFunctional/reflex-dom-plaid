@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | InstitutionsGetByIdResponse defines the response schema for &#x60;/institutions/get_by_id&#x60;
 newtype InstitutionsGetByIdResponse = InstitutionsGetByIdResponse { unInstitutionsGetByIdResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

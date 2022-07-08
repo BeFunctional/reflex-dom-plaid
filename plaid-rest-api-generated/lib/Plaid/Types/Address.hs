@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A physical mailing address.
 newtype Address = Address { unAddress :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

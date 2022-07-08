@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A sweep returned from the &#x60;/sandbox/transfer/sweep/simulate&#x60; endpoint. Can be null if there are no transfers to include in a sweep.
 newtype SimulatedTransferSweep = SimulatedTransferSweep { unSimulatedTransferSweep :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

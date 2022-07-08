@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A transaction within an investment account.
 newtype InvestmentTransaction = InvestmentTransaction { unInvestmentTransaction :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | SignalDecisionReportResponse defines the response schema for &#x60;/signal/decision/report&#x60;
 newtype SignalDecisionReportResponse = SignalDecisionReportResponse { unSignalDecisionReportResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

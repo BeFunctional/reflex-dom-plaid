@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | SandboxItemSetVerificationStatusResponse defines the response schema for &#x60;/sandbox/item/set_verification_status&#x60;
 newtype SandboxItemSetVerificationStatusResponse = SandboxItemSetVerificationStatusResponse { unSandboxItemSetVerificationStatusResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

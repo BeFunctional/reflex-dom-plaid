@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A identity verification attempt represents a customer&#39;s attempt to verify their identity, reflecting the required steps for completing the session, the results for each step, and information collected in the process.
 newtype IdentityVerificationResponse = IdentityVerificationResponse { unIdentityVerificationResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

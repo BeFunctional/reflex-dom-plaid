@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object representing information about the net pay amount on the paystub.
 newtype NetPay = NetPay { unNetPay :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

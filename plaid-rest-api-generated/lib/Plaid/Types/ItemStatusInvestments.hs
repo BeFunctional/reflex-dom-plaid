@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Information about the last successful and failed investments update for the Item.
 newtype ItemStatusInvestments = ItemStatusInvestments { unItemStatusInvestments :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

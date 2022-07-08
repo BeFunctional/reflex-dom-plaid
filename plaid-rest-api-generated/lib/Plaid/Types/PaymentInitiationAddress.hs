@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The optional address of the payment recipient.
 newtype PaymentInitiationAddress = PaymentInitiationAddress { unPaymentInitiationAddress :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

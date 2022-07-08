@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ProcessorBalanceGetResponse defines the response schema for &#x60;/processor/balance/get&#x60;
 newtype ProcessorBalanceGetResponse = ProcessorBalanceGetResponse { unProcessorBalanceGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

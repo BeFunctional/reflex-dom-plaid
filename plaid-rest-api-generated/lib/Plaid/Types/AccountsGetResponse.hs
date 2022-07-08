@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | AccountsGetResponse defines the response schema for &#x60;/accounts/get&#x60; and &#x60;/accounts/balance/get&#x60;.
 newtype AccountsGetResponse = AccountsGetResponse { unAccountsGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

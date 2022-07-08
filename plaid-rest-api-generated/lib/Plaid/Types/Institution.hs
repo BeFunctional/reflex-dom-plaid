@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Details relating to a specific financial institution
 newtype Institution = Institution { unInstitution :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

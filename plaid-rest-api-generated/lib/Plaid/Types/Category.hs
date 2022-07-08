@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Information describing a transaction category
 newtype Category = Category { unCategory :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

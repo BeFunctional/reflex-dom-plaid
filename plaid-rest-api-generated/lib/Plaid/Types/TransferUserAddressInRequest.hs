@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The address associated with the account holder.
 newtype TransferUserAddressInRequest = TransferUserAddressInRequest { unTransferUserAddressInRequest :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

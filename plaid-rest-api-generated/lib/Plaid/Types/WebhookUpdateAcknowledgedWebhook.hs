@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when an Item&#39;s webhook is updated. This will be sent to the newly specified webhook.
 newtype WebhookUpdateAcknowledgedWebhook = WebhookUpdateAcknowledgedWebhook { unWebhookUpdateAcknowledgedWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

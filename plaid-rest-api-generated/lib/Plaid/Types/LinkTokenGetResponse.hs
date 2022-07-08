@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | LinkTokenGetResponse defines the response schema for &#x60;/link/token/get&#x60;
 newtype LinkTokenGetResponse = LinkTokenGetResponse { unLinkTokenGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

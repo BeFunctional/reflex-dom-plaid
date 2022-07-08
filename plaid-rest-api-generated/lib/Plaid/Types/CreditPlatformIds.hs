@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The object containing a set of ids related to an employee.
 newtype CreditPlatformIds = CreditPlatformIds { unCreditPlatformIds :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

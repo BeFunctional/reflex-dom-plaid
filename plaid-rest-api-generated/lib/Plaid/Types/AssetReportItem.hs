@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A representation of an Item within an Asset Report.
 newtype AssetReportItem = AssetReportItem { unAssetReportItem :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

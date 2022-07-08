@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when an Item is verified via automated micro-deposits. We recommend communicating to your users when this event is received to notify them that their account is verified and ready for use.
 newtype AutomaticallyVerifiedWebhook = AutomaticallyVerifiedWebhook { unAutomaticallyVerifiedWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

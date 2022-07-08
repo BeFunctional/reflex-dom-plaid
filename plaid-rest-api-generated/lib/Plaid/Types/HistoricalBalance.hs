@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object representing a balance held by an account in the past
 newtype HistoricalBalance = HistoricalBalance { unHistoricalBalance :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | PaymentInitiationPayment defines a payment initiation payment
 newtype PaymentInitiationPayment = PaymentInitiationPayment { unPaymentInitiationPayment :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

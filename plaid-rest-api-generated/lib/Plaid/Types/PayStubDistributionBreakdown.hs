@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Information about the accounts that the payment was distributed to.
 newtype PayStubDistributionBreakdown = PayStubDistributionBreakdown { unPayStubDistributionBreakdown :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

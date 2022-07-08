@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Information about the matched direct deposit transaction used to verify a user&#39;s payroll information.
 newtype TransactionData = TransactionData { unTransactionData :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

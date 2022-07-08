@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Paginated list of screening reviews
 newtype PaginatedIndividualWatchlistScreeningReviewListResponse = PaginatedIndividualWatchlistScreeningReviewListResponse { unPaginatedIndividualWatchlistScreeningReviewListResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ItemApplicationScopesUpdateResponse defines the response schema for &#x60;/item/application/scopes/update&#x60;
 newtype ItemApplicationScopesUpdateResponse = ItemApplicationScopesUpdateResponse { unItemApplicationScopesUpdateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

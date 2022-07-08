@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Address on the paystub
 newtype PaystubAddress = PaystubAddress { unPaystubAddress :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

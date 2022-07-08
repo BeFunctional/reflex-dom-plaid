@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The entity screening object allows you to represent an entity in your system, update its profile, and search for it on various watchlists. Note: Rejected entity screenings will not receive new hits, regardless of entity program configuration.
 newtype EntityWatchlistScreeningResponse = EntityWatchlistScreeningResponse { unEntityWatchlistScreeningResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

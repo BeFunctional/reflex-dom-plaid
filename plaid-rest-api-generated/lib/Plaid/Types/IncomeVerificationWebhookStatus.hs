@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Status of the income verification webhook
 newtype IncomeVerificationWebhookStatus = IncomeVerificationWebhookStatus { unIncomeVerificationWebhookStatus :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

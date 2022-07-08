@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | AssetReportRelayRemoveResponse defines the response schema for &#x60;/asset_report/relay/remove&#x60;
 newtype AssetReportRelayRemoveResponse = AssetReportRelayRemoveResponse { unAssetReportRelayRemoveResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

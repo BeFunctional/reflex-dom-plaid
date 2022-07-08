@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The &#x60;account_filters&#x60; specified in the original call to &#x60;/link/token/create&#x60;. 
 newtype AccountFiltersResponse = AccountFiltersResponse { unAccountFiltersResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

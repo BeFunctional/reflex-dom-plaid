@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ItemAccessTokenInvalidateResponse defines the response schema for &#x60;/item/access_token/invalidate&#x60;
 newtype ItemAccessTokenInvalidateResponse = ItemAccessTokenInvalidateResponse { unItemAccessTokenInvalidateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

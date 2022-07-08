@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | SandboxProcessorTokenCreateResponse defines the response schema for &#x60;/sandbox/processor_token/create&#x60;
 newtype SandboxProcessorTokenCreateResponse = SandboxProcessorTokenCreateResponse { unSandboxProcessorTokenCreateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

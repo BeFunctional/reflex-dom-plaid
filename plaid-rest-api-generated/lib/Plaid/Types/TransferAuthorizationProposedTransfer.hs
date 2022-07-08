@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Details regarding the proposed transfer.
 newtype TransferAuthorizationProposedTransfer = TransferAuthorizationProposedTransfer { unTransferAuthorizationProposedTransfer :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

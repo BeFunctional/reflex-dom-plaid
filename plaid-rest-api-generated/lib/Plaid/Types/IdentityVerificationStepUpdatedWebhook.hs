@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when an end user has completed a step of the Identity Verification process.
 newtype IdentityVerificationStepUpdatedWebhook = IdentityVerificationStepUpdatedWebhook { unIdentityVerificationStepUpdatedWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

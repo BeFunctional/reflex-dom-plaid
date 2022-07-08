@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Details about a certain reason as to why a document could potentially be fraudulent.
 newtype PayStubVerificationAttribute = PayStubVerificationAttribute { unPayStubVerificationAttribute :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

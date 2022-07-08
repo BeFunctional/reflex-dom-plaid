@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Metadata that captures information about the Auth features of an institution.
 newtype AuthMetadata = AuthMetadata { unAuthMetadata :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The deposit switch target user
 newtype DepositSwitchTargetUser = DepositSwitchTargetUser { unDepositSwitchTargetUser :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

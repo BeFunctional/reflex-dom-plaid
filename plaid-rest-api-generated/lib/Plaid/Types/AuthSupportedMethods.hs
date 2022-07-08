@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Metadata specifically related to which auth methods an institution supports.
 newtype AuthSupportedMethods = AuthSupportedMethods { unAuthSupportedMethods :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

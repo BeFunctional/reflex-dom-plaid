@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | CreditPayrollIncomeRiskSignalsGetRequest defines the request schema for &#x60;/beta/credit/payroll_income/risk_signals/get&#x60;
 newtype CreditPayrollIncomeRiskSignalsGetRequest = CreditPayrollIncomeRiskSignalsGetRequest { unCreditPayrollIncomeRiskSignalsGetRequest :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

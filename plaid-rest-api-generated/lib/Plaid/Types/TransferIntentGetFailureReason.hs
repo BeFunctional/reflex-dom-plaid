@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The reason for a failed transfer intent. Returned only if the transfer intent status is &#x60;failed&#x60;. Null otherwise.
 newtype TransferIntentGetFailureReason = TransferIntentGetFailureReason { unTransferIntentGetFailureReason :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

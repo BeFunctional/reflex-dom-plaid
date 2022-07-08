@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object containing employer data.
 newtype EmployerVerification = EmployerVerification { unEmployerVerification :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

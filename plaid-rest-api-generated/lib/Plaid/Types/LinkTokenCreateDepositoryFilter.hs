@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A filter to apply to &#x60;depository&#x60;-type accounts
 newtype LinkTokenCreateDepositoryFilter = LinkTokenCreateDepositoryFilter { unLinkTokenCreateDepositoryFilter :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

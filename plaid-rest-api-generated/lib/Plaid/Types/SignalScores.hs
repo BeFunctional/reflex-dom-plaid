@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Risk scoring details broken down by risk category.
 newtype SignalScores = SignalScores { unSignalScores :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

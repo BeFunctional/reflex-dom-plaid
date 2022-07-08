@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object representing the earnings line items for the pay period.
 newtype EarningsBreakdown = EarningsBreakdown { unEarningsBreakdown :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

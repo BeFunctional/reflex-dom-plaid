@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Defines the response schema for &#x60;/transfer/intent/create&#x60;
 newtype TransferIntentCreateResponse = TransferIntentCreateResponse { unTransferIntentCreateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

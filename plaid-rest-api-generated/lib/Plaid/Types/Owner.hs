@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Data returned from the financial institution about the owner or owners of an account. Only the &#x60;names&#x60; array must be non-empty.
 newtype Owner = Owner { unOwner :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

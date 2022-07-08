@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | SignalEvaluateResponse defines the response schema for &#x60;/signal/income/evaluate&#x60;
 newtype SignalEvaluateResponse = SignalEvaluateResponse { unSignalEvaluateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

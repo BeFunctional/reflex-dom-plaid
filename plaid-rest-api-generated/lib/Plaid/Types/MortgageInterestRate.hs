@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Object containing metadata about the interest rate for the mortgage.
 newtype MortgageInterestRate = MortgageInterestRate { unMortgageInterestRate :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

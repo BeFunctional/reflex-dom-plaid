@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The product access being requested. Used to or disallow product access across all accounts. If unset, defaults to all products allowed.
 newtype ProductAccess = ProductAccess { unProductAccess :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

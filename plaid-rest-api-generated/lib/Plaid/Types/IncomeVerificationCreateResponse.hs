@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | IncomeVerificationCreateResponse defines the response schema for &#x60;/income/verification/create&#x60;.
 newtype IncomeVerificationCreateResponse = IncomeVerificationCreateResponse { unIncomeVerificationCreateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A securities holding at an institution.
 newtype Holding = Holding { unHolding :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

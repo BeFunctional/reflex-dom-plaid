@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | PaymentInitiationPaymentReverseResponse defines the response schema for &#x60;/payment_initation/payment/reverse&#x60;
 newtype PaymentInitiationPaymentReverseResponse = PaymentInitiationPaymentReverseResponse { unPaymentInitiationPaymentReverseResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

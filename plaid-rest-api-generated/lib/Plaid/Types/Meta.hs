@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Allows specifying the metadata of the test account
 newtype Meta = Meta { unMeta :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

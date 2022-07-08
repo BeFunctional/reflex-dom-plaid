@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ProcessorStripeBankAccountTokenCreateResponse defines the response schema for &#x60;/processor/stripe/bank_account/create&#x60;
 newtype ProcessorStripeBankAccountTokenCreateResponse = ProcessorStripeBankAccountTokenCreateResponse { unProcessorStripeBankAccountTokenCreateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

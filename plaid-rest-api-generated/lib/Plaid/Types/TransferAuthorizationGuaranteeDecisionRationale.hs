@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The rationale for Plaid&#39;s decision to not guarantee a transfer. Will be &#x60;null&#x60; unless &#x60;guarantee_decision&#x60; is &#x60;NOT_GUARANTEED&#x60;.
 newtype TransferAuthorizationGuaranteeDecisionRationale = TransferAuthorizationGuaranteeDecisionRationale { unTransferAuthorizationGuaranteeDecisionRationale :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

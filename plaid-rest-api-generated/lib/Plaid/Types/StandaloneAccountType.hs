@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The schema below describes the various &#x60;types&#x60; and corresponding &#x60;subtypes&#x60; that Plaid recognizes and reports for financial institution accounts.
 newtype StandaloneAccountType = StandaloneAccountType { unStandaloneAccountType :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Details about the pay period.
 newtype PayStubPayPeriodDetails = PayStubPayPeriodDetails { unPayStubPayPeriodDetails :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

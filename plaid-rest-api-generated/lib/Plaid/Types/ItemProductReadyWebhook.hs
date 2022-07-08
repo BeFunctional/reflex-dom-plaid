@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired once Plaid calculates income from an Item.
 newtype ItemProductReadyWebhook = ItemProductReadyWebhook { unItemProductReadyWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

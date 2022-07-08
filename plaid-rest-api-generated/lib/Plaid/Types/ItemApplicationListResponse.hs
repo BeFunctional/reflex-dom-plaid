@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Describes the connected application for a particular end user.
 newtype ItemApplicationListResponse = ItemApplicationListResponse { unItemApplicationListResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

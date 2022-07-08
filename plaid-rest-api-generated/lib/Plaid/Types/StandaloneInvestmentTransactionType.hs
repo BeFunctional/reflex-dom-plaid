@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Valid values for investment transaction types and subtypes. Note that transactions representing inflow of cash will appear as negative amounts, outflow of cash will appear as positive amounts.
 newtype StandaloneInvestmentTransactionType = StandaloneInvestmentTransactionType { unStandaloneInvestmentTransactionType :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

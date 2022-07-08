@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Student loan repayment information used to configure Sandbox test data for the Liabilities product
 newtype StudentLoanRepaymentModel = StudentLoanRepaymentModel { unStudentLoanRepaymentModel :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

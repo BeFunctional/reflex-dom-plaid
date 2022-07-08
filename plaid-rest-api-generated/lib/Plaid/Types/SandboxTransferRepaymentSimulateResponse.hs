@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Defines the response schema for &#x60;/sandbox/transfer/repayment/simulate&#x60;
 newtype SandboxTransferRepaymentSimulateResponse = SandboxTransferRepaymentSimulateResponse { unSandboxTransferRepaymentSimulateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

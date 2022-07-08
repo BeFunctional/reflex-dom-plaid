@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ItemPublicTokenExchangeResponse defines the response schema for &#x60;/item/public_token/exchange&#x60;
 newtype ItemPublicTokenExchangeResponse = ItemPublicTokenExchangeResponse { unItemPublicTokenExchangeResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

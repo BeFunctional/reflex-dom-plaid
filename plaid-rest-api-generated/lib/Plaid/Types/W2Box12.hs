@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Data on the W2 Box 12
 newtype W2Box12 = W2Box12 { unW2Box12 :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

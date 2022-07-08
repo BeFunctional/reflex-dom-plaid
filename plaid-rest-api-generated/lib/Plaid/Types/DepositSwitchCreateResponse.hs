@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | DepositSwitchCreateResponse defines the response schema for &#x60;/deposit_switch/create&#x60;
 newtype DepositSwitchCreateResponse = DepositSwitchCreateResponse { unDepositSwitchCreateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

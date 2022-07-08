@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Identifying information for transferring money to or from a Canadian bank account via EFT.
 newtype NumbersEFT = NumbersEFT { unNumbersEFT :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

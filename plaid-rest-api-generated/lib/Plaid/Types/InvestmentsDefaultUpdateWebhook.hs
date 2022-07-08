@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when new or canceled transactions have been detected on an investment account.
 newtype InvestmentsDefaultUpdateWebhook = InvestmentsDefaultUpdateWebhook { unInvestmentsDefaultUpdateWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

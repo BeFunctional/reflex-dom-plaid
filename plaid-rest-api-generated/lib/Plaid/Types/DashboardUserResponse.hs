@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Account information associated with a team member with access to the Plaid dashboard.
 newtype DashboardUserResponse = DashboardUserResponse { unDashboardUserResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

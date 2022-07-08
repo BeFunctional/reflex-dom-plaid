@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when identity verification has been retried, which can be triggered via the dashboard or the API.
 newtype IdentityVerificationRetriedWebhook = IdentityVerificationRetriedWebhook { unIdentityVerificationRetriedWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ProcessorAuthGetResponse defines the response schema for &#x60;/processor/auth/get&#x60;
 newtype ProcessorAuthGetResponse = ProcessorAuthGetResponse { unProcessorAuthGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

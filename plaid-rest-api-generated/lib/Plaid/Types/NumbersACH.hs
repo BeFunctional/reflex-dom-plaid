@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Identifying information for transferring money to or from a US account via ACH or wire transfer.
 newtype NumbersACH = NumbersACH { unNumbersACH :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

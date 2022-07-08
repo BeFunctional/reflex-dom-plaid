@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Used to configure Sandbox test data for the Liabilities product
 newtype LiabilityOverride = LiabilityOverride { unLiabilityOverride :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

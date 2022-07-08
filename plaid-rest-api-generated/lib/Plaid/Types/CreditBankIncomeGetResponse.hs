@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | CreditBankIncomeGetResponse defines the response schema for &#x60;/credit/bank_income/get&#x60;
 newtype CreditBankIncomeGetResponse = CreditBankIncomeGetResponse { unCreditBankIncomeGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

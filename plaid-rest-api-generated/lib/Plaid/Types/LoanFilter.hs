@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A filter to apply to &#x60;loan&#x60;-type accounts
 newtype LoanFilter = LoanFilter { unLoanFilter :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

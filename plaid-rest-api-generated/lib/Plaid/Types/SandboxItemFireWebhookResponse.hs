@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | SandboxItemFireWebhookResponse defines the response schema for &#x60;/sandbox/item/fire_webhook&#x60;
 newtype SandboxItemFireWebhookResponse = SandboxItemFireWebhookResponse { unSandboxItemFireWebhookResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Defines the response schema for &#x60;/credit/payroll_income/precheck&#x60;.
 newtype CreditPayrollIncomePrecheckResponse = CreditPayrollIncomePrecheckResponse { unCreditPayrollIncomePrecheckResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Paginated list of entity watchlist screening hits
 newtype PaginatedEntityWatchlistScreeningHitListResponse = PaginatedEntityWatchlistScreeningHitListResponse { unPaginatedEntityWatchlistScreeningHitListResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

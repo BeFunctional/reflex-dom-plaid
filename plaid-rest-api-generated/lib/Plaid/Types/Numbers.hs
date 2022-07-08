@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Account and bank identifier number data used to configure the test account. All values are optional.
 newtype Numbers = Numbers { unNumbers :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

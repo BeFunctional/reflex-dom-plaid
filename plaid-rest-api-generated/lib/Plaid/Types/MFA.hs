@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Specifies the multi-factor authentication settings to use with this test account
 newtype MFA = MFA { unMFA :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

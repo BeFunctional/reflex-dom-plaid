@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object representing the rate at which an individual is paid.
 newtype PayrollIncomeRateOfPay = PayrollIncomeRateOfPay { unPayrollIncomeRateOfPay :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Object containing fraud risk data for a set of income documents
 newtype DocumentRiskSignalsObject = DocumentRiskSignalsObject { unDocumentRiskSignalsObject :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

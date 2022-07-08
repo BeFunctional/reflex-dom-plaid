@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | EmploymentVerificationGetResponse defines the response schema for &#x60;/employment/verification/get&#x60;.
 newtype EmploymentVerificationGetResponse = EmploymentVerificationGetResponse { unEmploymentVerificationGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

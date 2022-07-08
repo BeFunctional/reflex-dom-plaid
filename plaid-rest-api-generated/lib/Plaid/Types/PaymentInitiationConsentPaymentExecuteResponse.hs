@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | PaymentInitiationConsentPaymentExecuteResponse defines the response schema for &#x60;/payment_initiation/consent/payment/execute&#x60;
 newtype PaymentInitiationConsentPaymentExecuteResponse = PaymentInitiationConsentPaymentExecuteResponse { unPaymentInitiationConsentPaymentExecuteResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

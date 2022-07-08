@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A program that configures the active lists, search parameters, and other behavior for initial and ongoing screening of individuals.
 newtype IndividualWatchlistProgramResponse = IndividualWatchlistProgramResponse { unIndividualWatchlistProgramResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

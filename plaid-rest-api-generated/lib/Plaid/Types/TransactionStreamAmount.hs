@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Object with data pertaining to an amount on the transaction stream.
 newtype TransactionStreamAmount = TransactionStreamAmount { unTransactionStreamAmount :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

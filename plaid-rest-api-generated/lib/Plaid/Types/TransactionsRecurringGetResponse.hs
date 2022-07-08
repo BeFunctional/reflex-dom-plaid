@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | TransactionsRecurringGetResponse defines the response schema for &#x60;/transactions/recurring/get&#x60;
 newtype TransactionsRecurringGetResponse = TransactionsRecurringGetResponse { unTransactionsRecurringGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

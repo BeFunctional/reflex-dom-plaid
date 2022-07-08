@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object representing a monetary amount.
 newtype Pay = Pay { unPay :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object representing the repayment plan for the student loan
 newtype StudentRepaymentPlan = StudentRepaymentPlan { unStudentRepaymentPlan :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

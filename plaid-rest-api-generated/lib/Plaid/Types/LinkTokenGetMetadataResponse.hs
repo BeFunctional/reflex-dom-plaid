@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An object specifying the arguments originally provided to the &#x60;/link/token/create&#x60; call.
 newtype LinkTokenGetMetadataResponse = LinkTokenGetMetadataResponse { unLinkTokenGetMetadataResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

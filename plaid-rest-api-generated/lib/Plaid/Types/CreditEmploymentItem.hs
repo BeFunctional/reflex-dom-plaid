@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The object containing employment items.
 newtype CreditEmploymentItem = CreditEmploymentItem { unCreditEmploymentItem :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

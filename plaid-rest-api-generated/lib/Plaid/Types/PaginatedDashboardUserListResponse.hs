@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Paginated list of dashboard users
 newtype PaginatedDashboardUserListResponse = PaginatedDashboardUserListResponse { unPaginatedDashboardUserListResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

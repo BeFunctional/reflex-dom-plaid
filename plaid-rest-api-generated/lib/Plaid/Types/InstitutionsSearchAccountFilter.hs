@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | An account filter to apply to institutions search requests
 newtype InstitutionsSearchAccountFilter = InstitutionsSearchAccountFilter { unInstitutionsSearchAccountFilter :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

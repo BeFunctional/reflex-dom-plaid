@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ReportToken is a representation of a token that has a &#x60;report_type&#x60; field that can be one of &#x60;assets&#x60; or &#x60;income&#x60; and a &#x60;token&#x60; field which is the associated token with the &#x60;report_type&#x60;. The &#x60;token&#x60; can be an Asset Report token or Income Report token.
 newtype ReportToken = ReportToken { unReportToken :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

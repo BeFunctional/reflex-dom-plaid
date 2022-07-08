@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | ProcessorTokenCreateResponse defines the response schema for &#x60;/processor/token/create&#x60; and &#x60;/processor/apex/processor_token/create&#x60;
 newtype ProcessorTokenCreateResponse = ProcessorTokenCreateResponse { unProcessorTokenCreateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

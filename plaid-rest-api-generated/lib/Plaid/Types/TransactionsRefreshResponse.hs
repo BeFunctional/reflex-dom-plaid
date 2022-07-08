@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | TransactionsRefreshResponse defines the response schema for &#x60;/transactions/refresh&#x60;
 newtype TransactionsRefreshResponse = TransactionsRefreshResponse { unTransactionsRefreshResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

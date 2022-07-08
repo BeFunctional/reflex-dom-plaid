@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Information about the balance of a bank transfer
 newtype BankTransferBalance = BankTransferBalance { unBankTransferBalance :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

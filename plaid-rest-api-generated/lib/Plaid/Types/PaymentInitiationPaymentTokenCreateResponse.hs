@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | PaymentInitiationPaymentTokenCreateResponse defines the response schema for &#x60;/payment_initiation/payment/token/create&#x60;
 newtype PaymentInitiationPaymentTokenCreateResponse = PaymentInitiationPaymentTokenCreateResponse { unPaymentInitiationPaymentTokenCreateResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

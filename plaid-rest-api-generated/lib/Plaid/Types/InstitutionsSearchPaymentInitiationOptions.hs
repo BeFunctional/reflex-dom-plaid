@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Additional options that will be used to filter institutions by various Payment Initiation configurations.
 newtype InstitutionsSearchPaymentInitiationOptions = InstitutionsSearchPaymentInitiationOptions { unInstitutionsSearchPaymentInitiationOptions :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

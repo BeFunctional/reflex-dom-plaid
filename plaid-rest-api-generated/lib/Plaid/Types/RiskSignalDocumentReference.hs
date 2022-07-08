@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Object containing metadata for the document
 newtype RiskSignalDocumentReference = RiskSignalDocumentReference { unRiskSignalDocumentReference :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

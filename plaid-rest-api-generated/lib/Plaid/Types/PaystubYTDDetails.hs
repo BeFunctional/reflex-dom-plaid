@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The amount of income earned year to date, as based on paystub data.
 newtype PaystubYTDDetails = PaystubYTDDetails { unPaystubYTDDetails :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

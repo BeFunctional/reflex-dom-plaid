@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Fired when an entity screening status has changed, which can occur manually via the dashboard or during ongoing monitoring.
 newtype EntityScreeningStatusUpdatedWebhook = EntityScreeningStatusUpdatedWebhook { unEntityScreeningStatusUpdatedWebhook :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Identifying information for transferring money to or from a UK bank account via BACS.
 newtype NumbersBACS = NumbersBACS { unNumbersBACS :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The legal name and other information for the account holder.
 newtype BankTransferUser = BankTransferUser { unBankTransferUser :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

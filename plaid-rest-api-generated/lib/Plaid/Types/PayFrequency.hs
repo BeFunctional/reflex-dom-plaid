@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | The frequency of the pay period.
 newtype PayFrequency = PayFrequency { unPayFrequency :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Data to populate as test transaction data. If not specified, random transactions will be generated instead.
 newtype TransactionOverride = TransactionOverride { unTransactionOverride :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

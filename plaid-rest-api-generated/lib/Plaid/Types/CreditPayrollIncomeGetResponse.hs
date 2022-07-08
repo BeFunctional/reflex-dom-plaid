@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Defines the response body for &#x60;/credit/payroll_income/get&#x60;.
 newtype CreditPayrollIncomeGetResponse = CreditPayrollIncomeGetResponse { unCreditPayrollIncomeGetResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | W2 is an object that represents income data taken from a W2 tax document.
 newtype CreditW2 = CreditW2 { unCreditW2 :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

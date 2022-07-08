@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | SandboxItemResetLoginResponse defines the response schema for &#x60;/sandbox/item/reset_login&#x60;
 newtype SandboxItemResetLoginResponse = SandboxItemResetLoginResponse { unSandboxItemResetLoginResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

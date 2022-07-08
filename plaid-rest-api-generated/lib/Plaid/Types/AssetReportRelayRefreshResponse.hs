@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | AssetReportRelayRefreshResponse defines the response schema for &#x60;/asset_report/relay/refresh&#x60;
 newtype AssetReportRelayRefreshResponse = AssetReportRelayRefreshResponse { unAssetReportRelayRefreshResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

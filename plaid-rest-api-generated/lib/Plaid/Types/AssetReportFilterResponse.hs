@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | AssetReportFilterResponse defines the response schema for &#x60;/asset_report/filter&#x60;
 newtype AssetReportFilterResponse = AssetReportFilterResponse { unAssetReportFilterResponse :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

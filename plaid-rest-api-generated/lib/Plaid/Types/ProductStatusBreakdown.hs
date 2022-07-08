@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | A detailed breakdown of the institution&#39;s performance for a request type. The values for &#x60;success&#x60;, &#x60;error_plaid&#x60;, and &#x60;error_institution&#x60; sum to 1.
 newtype ProductStatusBreakdown = ProductStatusBreakdown { unProductStatusBreakdown :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

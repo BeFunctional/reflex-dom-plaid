@@ -29,6 +29,7 @@ import Plaid.Types.Common
 
 -- | Metadata that captures what specific payment configurations an institution supports when making Payment Initiation requests.
 newtype PaymentInitiationMetadata = PaymentInitiationMetadata { unPaymentInitiationMetadata :: Map.Map Text Value }
-  deriving (Show, Eq, FromJSON, ToJSON, Generic, Data)
+  deriving stock (Show, Eq, Generic, Data)
+  deriving newtype (ToJSON, FromJSON)
 
 

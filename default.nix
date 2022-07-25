@@ -20,8 +20,8 @@ in reflex-platform.project ({ pkgs, ... }: {
   };
 
   shells = {
-    ghc = [ "reflex-dom-plaid" "demo" "plaid-rest-api-generated" ];
-    ghcjs = [ "reflex-dom-plaid" "demo" ];
+    ghc = [ "reflex-dom-plaid" "demo" "plaid-rest-api-generated" "reflex-dom-plaid-common" ];
+    ghcjs = [ "reflex-dom-plaid" "demo" "reflex-dom-plaid-common"];
   };
 })
 

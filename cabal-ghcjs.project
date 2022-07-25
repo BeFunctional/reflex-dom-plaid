@@ -1,4 +1,5 @@
 compiler: ghcjs
 packages:
+  reflex-dom-plaid-common/
   reflex-dom-plaid/
   demo/
